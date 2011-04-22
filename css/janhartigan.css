@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+html {
+	height:100%;
+}
+
+body {
+	background:url(/images/top_bar.png) repeat-x 0 0;
+	font-size: 80%;
+	font-family:  arial, helvetica, sans-serif;
+	height:100%;
+}
+
+a, a:link, a:visited, a:active {
+	text-decoration:none;
+	outline-style:none;
+}
+
+form label {
+	color:#202020;
+	font-size:12px;
+	font-weight:bold;
+}
+
+code {
+	display:block !important;
+	margin:10px 10px 0 10px !important;
+	background: #f0f0f0 !important;
+	filter: progid:DXImageTransform.Microsoft.gradient(StartColorStr='white', EndColorStr='#f0f0f0') !important;
+	background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f0f0f0)) !important;
+	background: -moz-linear-gradient(top, white, #f0f0f0) !important;
+	border-radius: 0.6em !important;
+	-webkit-border-radius: 0.6em !important;
+	-moz-border-radius: 0.6em !important;
+	-moz-box-shadow: 1px 1px 3px #ddd !important;
+	-webkit-box-shadow: 1px 1px 3px #ddd !important;
+	box-shadow: 1px 1px 3px #ddd !important;
+	padding: 0.6em !important;
+	border: 1px solid #aaaaaa !important;
+	width:auto !important;
+}
+
+input[type="button"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner { 
+    border: 0;
+    padding: 0;
+}
+
+input[type="button"], input[type="submit"] {
+	border-collapse:collapse;
+	text-align:center;
+	margin:1px;
+}
+
+input[type=text], input[type=password] {
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
+	border-radius:2px;
+	padding:3px;
+}
+
+input[type=submit], input[type=button] {
+	padding:3px;
+}
+
+ul {
+	list-style-type:none;
+}
+
+img {
+	border:0;
+}
+
+textarea {
+	font-family:  arial, helvetica, sans-serif;
+}
+
+h1 {
+	font-size:22px;
+	color:#09193c;
+}
+
+h2 {
+	font-size:22px;
+	margin-bottom:15px;
+	color:#09193c;
+}
+
+h3 {
+	font-size:18px;
+	margin-bottom:5px;
+	color:#09193c;
+}
+
+h4 {
+	font-size:15px;
+	margin-bottom:5px;
+	color:#09193c;
+}
+
+.clear {
+	clear:both;
+}
+
+.clearleft {
+	clear:left;
+}
+
+.clearright {
+	clear:right;
+}
+
+.small_notice {
+	color:#777;
+	font-size:.9em;
+}
+#mainwrapper {
+	width:1000px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+}
+#header {
+	position:relative;
+	padding-bottom:20px;
+	margin-bottom:20px;
+}
+#logo {
+	display:block;
+	float:left;
+	width:280px;
+	height:90px;
+	background:url(/images/logo.png) no-repeat;
+	margin:15px 0 0 5px;
+}
+#site_description_box {
+	margin-top:45px;
+	font-size:1.2em;
+	line-height:20px;
+	color:#555;
+}
+#site_nav_menu {
+	margin:45px 0 0 30px;
+	float:right;
+}
+#site_nav_menu li {
+	float:left;
+	list-style-type:none;
+	margin-right:5px;
+}
+#site_nav_menu a {
+	display:block;
+	padding:5px;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	text-align:center;
+	color:#123177 !important;
+}
+#site_nav_menu a:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#site_nav_menu img {
+	display:block;
+	margin-bottom:8px;
+}
+#site_nav_menu .home_icon {
+	
+}
+#page_content {
+	
+}
+#left_main {
+	float:left;
+	width:594px;
+	padding-right:25px;
+	border-right:3px solid silver;
+}
+#right_main {
+	float:right;
+	width:365px;
+}
+
+/**
+ * Small news items area
+ */
+#news_list {
+	
+}
+#news_list  > li {
+	margin-bottom:30px;
+	border-bottom:1px solid silver;
+}
+.item_description {
+	line-height:22px;
+}
+.item_time {
+	margin-bottom:15px;
+	font-style:italic;
+}
+.news_item_header_link {
+	display:block;
+}
+.article_division {
+	display:none;
+}
+.news_item_read_more_link {
+	display:block;
+	float:right;
+	margin:10px 0;
+	padding:5px;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	color:#123177 !important;
+}
+.news_item_read_more_link:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+.simple_list {
+	list-style-type:disc;
+	padding-left:30px;
+}
+.simple_list > li {
+	margin-bottom:5px;
+}
+
+/**
+ * News item
+ */
+#news_disqus_container {
+	float:right;
+	width:365px;
+}
+#main_news_article {
+	width:594px;
+	border-right:1px solid silver;
+	margin-right:20px;
+	padding-right:25px;
+}
+
+/**
+ * Small creations area
+ */
+#creations_list {
+	
+}
+#creations_list li {
+	padding:5px 5px 15px;
+	border-bottom:1px solid silver;
+	margin-bottom:15px;
+}
+#creations_list .creation_small_link {
+	display:block;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	padding:4px;
+	color:black !important;
+}
+#creations_list .creation_small_link:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#creations_list .creation_small_image {
+	display:block;
+	float:right;
+	margin:0 0 5px 5px;
+}
+#creations_list .creation_small_time {
+	margin:0 0 5px;
+	font-style:italic;
+}
+#creations_list .creation_short_description {
+	line-height:22px;
+}
+
+
+
+/**
+ * Creation view
+ */
+#creation_top_section {
+	padding-bottom:20px;
+	border-bottom:1px solid silver;
+	margin-bottom:20px;
+}
+#creation_example {
+	margin:0 0 0 20px;
+	padding:0 0 0 20px;
+	border-left:1px solid silver;
+	float:right;
+	width:594px;
+	min-height:435px;
+}
+.creation_info_two_column {
+	float:left;
+	width:365px;
+}
+.creation_info_two_column .main_creation_image {
+	max-width:365px;
+	margin:7px 0;
+}
+.creation_info_two_column .github_link {
+	padding:5px;
+	display:block;
+	float:right;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+.creation_info_two_column .github_link:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#creation_disqus_container {
+	float:right;
+	margin:0 0 0 20px;
+	padding:0 0 0 20px;
+	width:365px;
+	border-left:1px solid silver;
+}
+#creation_documentation {
+	width:593px;
+	line-height:22px;
+}
+#creation_documentation img {
+	margin:15px 0;
+}
+
+/**
+ * Footer
+ */
+#footer {
+	clear:both;
+	height:20px;
+	margin-top:20px;
+}

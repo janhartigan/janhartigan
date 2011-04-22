@@ -1,0 +1,51 @@
+input[type=button] {
+    padding:3px;
+}
+#fractal_instructions {
+	margin-bottom:10px;
+}
+#fractal_canvas {
+	display:none;
+	margin-top:10px;
+}
+#fractal_picker {
+	position:relative;
+	height:380px;
+}
+#fractal_picker > div {
+	position:absolute;
+	cursor:pointer;
+	padding:10px;
+	color:#fff;
+	font-weight:bold;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-moz-box-shadow:0 0 4px #666;
+	-webkit-box-shadow:0 0 4px #666;
+	box-shadow:0 0 4px #666;
+}
+#fractal_picker > div:hover {
+	color:black;
+	background-color:#82d796;
+}
+#fractal_picker_large {
+	width:570px;
+	height:360px;
+	bottom:0px;
+	background-color:#1a5127;
+}
+#fractal_picker_medium {
+	width:260px;
+	height:260px;
+	left:10px;
+	bottom:10px;
+	background-color:#2b8440;
+}
+#fractal_picker_small {
+	width:130px;
+	height:130px;
+	left:20px;
+	bottom:20px;
+	background-color:#3bb859;
+}
