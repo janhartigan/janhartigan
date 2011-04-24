@@ -114,11 +114,12 @@ class Creations_Model extends CI_Model {
 	 * 
 	 * @param int		rows
 	 * @param int		page
-	 * @param bool		limit_uris <== if set to true, it only returns those creations with the URI field filled in
+	 * @param bool		limit_uris ==> if set to true, it only returns those creations with the URI field filled in
+	 * @param string	sort ==> can be 'date'
 	 * 
 	 * @return array('success' ? 'items'=>array of arrays of creation data : 'error')
 	 */
-	function getCreations($rows = null, $page = null, $limit_uris = false)
+	function getCreations($rows = 10, $page = 0, $limit_uris = false, $sort='date')
 	{
 		$qStr = "SELECT * FROM creations";
 		
@@ -128,7 +129,8 @@ class Creations_Model extends CI_Model {
 		$qStr .= " ORDER BY time DESC";
 		
 		if (!is_null($rows)) {
-			$page = is_null($page) ? 0 : $page - 1;
+			$page = intval($page);
+			$page = $page <= 1 ? 0 : $page - 1;
 			
 			$qStr .= " LIMIT ".intval($page).", ".intval($rows);
 		}
