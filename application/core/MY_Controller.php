@@ -15,6 +15,12 @@ class MY_Controller extends CI_Controller {
 	var $title = "janhartigan.com - where your dreams probably won't come true";
 	
 	/** 
+	 * The selected menu item
+	 * @type string
+	 */
+	var $selected_menu = "home";
+	
+	/** 
 	 * description of the current page
 	 * @type string
 	 */
@@ -90,6 +96,7 @@ class MY_Controller extends CI_Controller {
 			'window_title' => $this->title,
 			'window_image' => $this->image,
 			'window_description' => $this->description,
+			'selected_menu' => $this->selected_menu,
 			'user' => $this->user_model->getCurrentUser(),
 			'content' => $this->content,
 			'js_files' => $this->js_files,

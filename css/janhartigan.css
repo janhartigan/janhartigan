@@ -163,7 +163,7 @@ h4 {
 	text-align:center;
 	color:#123177 !important;
 }
-#site_nav_menu a:hover {
+#site_nav_menu a:hover, #site_nav_menu a.selected {
 	background-color:#d0e7a1;
 	border:1px solid #83af2c;
 	-moz-box-shadow:0 0 3px #999;
