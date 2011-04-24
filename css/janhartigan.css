@@ -308,6 +308,35 @@ h4 {
 
 
 /**
+ * Creations landing
+ */
+#creations_list_main {
+	
+}
+#creations_list_main .creations_landing_item {
+	display:block;
+	float:left;
+	padding:5px;
+	margin:0 10px 10px 0;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+#creations_list_main .creations_landing_item:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#creations_list_main .creations_landing_item > img {
+	display:block;
+	margin-bottom:8px;
+}
+
+
+/**
  * Creation view
  */
 #creation_top_section {
