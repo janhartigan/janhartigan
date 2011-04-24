@@ -29,7 +29,7 @@
 		<script type="text/javascript" src="<?php echo base_url()?>js/<?php echo $file?>"></script>
 	<?php endforeach?>
 <?php endif?>
-<?php if (isset($disqus)) {?>
+<?php if (isset($disqus) && !empty($disqus)) {?>
 	<script type="text/javascript">
 		$(function() {
 	    	var disqus_shortname = 'janhartigan';
