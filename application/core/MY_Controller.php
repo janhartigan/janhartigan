@@ -85,68 +85,21 @@ class MY_Controller extends CI_Controller {
 	 * Loads a page given an array with a 'content' key holding the html for the inner box
 	 */
 	public function loadPage() {
-		$data['isadmin'] = $this->user_model->isAdmin();
+		$data = array(
+			'isadmin' => $this->user_model->isAdmin(),
+			'window_title' => $this->title,
+			'window_image' => $this->image,
+			'window_description' => $this->description,
+			'user' => $this->user_model->getCurrentUser(),
+			'content' => $this->content,
+			'js_files' => $this->js_files,
+			'css_files' => $this->css_files,
+			'disqus' => $this->disqus
+		);
 		
-		if (!$data['isadmin']) {
-			//$page_title = "Login/Register";
-			//$data['content'] = $this->load->view('login.php', $data, true);
-		} else {
-			//$data['inventory_menu'] = $this->load->view('inventorymenu.php', '', true);
-		}
-		
-		$data['window_title'] = $this->title;
-		$data['window_image'] = $this->image;
-		$data['window_description'] = $this->description;
-		$data['user'] = $this->user_model->getCurrentUser();
-		$data['content'] = $this->content;
-		$data['js_files'] = $this->js_files;
-		$data['css_files'] = $this->css_files;
-		$data['disqus'] = $this->disqus;
-		//$data['register_window'] = $this->load->view('login.php', '', true);
 		if(isset($data['cache'])){
 			$this->output->cache($data['cache']);
 		}
-		$this->load->view('header.php', $data);
-		$this->load->view('scaffold.php', $data);
-		$this->load->view('footer.php', $data);
-	}
-	
-	/**
-	 * Loads the 404 page
-	 */
-	public function load_404() {
-		$data['isadmin'] = $this->UserM->isAdmin();
-		
-		if ($data['isadmin']) {
-			$data['inventory_menu'] = $this->load->view('inventorymenu.php', '', true);
-		}
-		
-		$uri_string = uri_string();
-		
-		$data['window_title'] = $this->title;
-		$data['window_image'] = $this->image;
-		$data['window_description'] = $this->description;
-		$data['agent'] = $this->agent->browser();
-		$data['logged_in'] = $this->session->userdata('logged_in');
-		$data['user_id'] = $this->session->userdata('user_id');
-		$data['categories'] = $this->categories->getCategories();
-		$data['cart'] = $this->cartm->getCart();
-		$data['side_cart'] = $this->load->view('sidecart.php', $data, true);
-		$data['breadcrumbs'] = $this->breadcrumbs->getCrumbs();
-		$data['register_window'] = $this->load->view('login.php', '', true);
-			$info['tags']=$this->categories->getTags();
-			$info['maxTags']=100;
-		$data['menu']=$this->load->view('tagMenu.php',$info,true);
-		$this->load->library('text');
-		$data['error'] = $this->text->convertToHtml("Dearest internet denizen,
-		
-		The page you have requested (_*".current_url()."*_) doesn't exist. To navigate the site, just use the the pretty buttons and stuff.
-		
-		Love,
-		
-		Jan");
-		
-		$data['content'] = $this->load->view('404.php', $data, true);
 		
 		$this->load->view('header.php', $data);
 		$this->load->view('scaffold.php', $data);
