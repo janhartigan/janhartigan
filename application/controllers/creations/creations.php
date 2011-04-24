@@ -12,7 +12,7 @@ class Creations extends MY_Controller {
 	/**
 	 * Constructor function
 	 */
-	function __construct
+	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('creations_model');
