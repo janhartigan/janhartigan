@@ -14,6 +14,7 @@ class News extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->selected_menu = 'articles';
 		$this->load->model('news_model');
 	}
 	
@@ -44,7 +45,6 @@ class News extends MY_Controller {
 		$this->content = $this->load->view('news_item', array('item'=>$item['item']), true);
 		$this->description = $item['item']['description'];
 		$this->title = $item['item']['title'].' - janhartigan.com';
-		$this->selected_menu = 'articles';
 		$this->disqus = 'news-'.$title_url;
 		$this->loadPage();
 	}
