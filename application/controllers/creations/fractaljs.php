@@ -29,6 +29,7 @@ class FractalJS extends MY_Controller
 		
 		$this->description = $creation['creation']['short_description'];
 		$this->title = $creation['creation']['name'].' - janhartigan.com';
+		$this->selected_menu = 'creations';
 		$this->image = substr($creation['creation']['image'], 1);
 		$this->disqus = 'creations-fractaljs';
 		$this->content  = $this->load->view('creations/creation_home', $data, true);

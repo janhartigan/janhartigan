@@ -25,6 +25,7 @@ class News extends MY_Controller {
 	function index()
 	{
 		$this->content = $this->load->view('news', '', true);
+		$this->selected_menu = 'articles';
 		$this->loadPage();
 	}
 	
@@ -43,6 +44,7 @@ class News extends MY_Controller {
 		$this->content = $this->load->view('news_item', array('item'=>$item['item']), true);
 		$this->description = $item['item']['description'];
 		$this->title = $item['item']['title'].' - janhartigan.com';
+		$this->selected_menu = 'articles';
 		$this->disqus = 'news-'.$title_url;
 		$this->loadPage();
 	}
