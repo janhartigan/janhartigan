@@ -26,15 +26,5 @@ class Creations extends MY_Controller {
 		$this->content  = $this->load->view('homepage', $data, true);
 		$this->loadPage();
 	}
-	
-	/**
-	 * 404 error page
-	 */
-	function error404()
-	{
-		$this->title = "Y u no exist, page?? - janhartigan.com";
-		$this->content  = $this->load->view('page_404', false, true);
-		$this->loadPage();
-	}
 }
 ?>
