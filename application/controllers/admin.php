@@ -22,7 +22,7 @@ class Admin extends MY_Controller {
 			else
 				redirect(base_url());
 			
-		
+		$this->selected_menu = 'admin';
 		$this->load->model('news_model');
 		$this->load->model('creations_model');
 	}
