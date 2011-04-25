@@ -10,7 +10,7 @@ html {
 }
 
 body {
-	background:url(/images/top_bar.png) repeat-x 0 0;
+	background:url(/images/top_bar_100_height.png) repeat-x 0 0;
 	font-size: 80%;
 	font-family:  arial, helvetica, sans-serif;
 	height:100%;
@@ -131,16 +131,16 @@ h4 {
 }
 #header {
 	position:relative;
-	margin-bottom:20px;
+	margin-bottom:8px;
 	padding:0 5px 20px;
 }
 #logo {
 	display:block;
 	float:left;
 	width:280px;
-	height:90px;
-	background:url(/images/logo.png) no-repeat;
-	margin:15px 0 0 5px;
+	height:48px;
+	background:url(/images/logo_no_sub.png) no-repeat;
+	margin:18px 0 0 5px;
 }
 #site_description_box {
 	margin-top:45px;
