@@ -1795,8 +1795,8 @@ $(document).ready(function() {
 			short_description: '',
 			description: '',
 			marked_up_description: '',
-			uri: true,
-			live_url: true,
+			uri: '',
+			live_url: '',
 			image: '',
 			image_small: '',
 			time: ''
@@ -1823,6 +1823,7 @@ $(document).ready(function() {
 			this.initiateAdminGrid();
 			this.initiateTextEditor();
 			characters.addField($('#portfolio_item_details_short_description'), 600);
+			$('#portfolio_item_details_time').datepicker({ dateFormat: 'yy-mm-dd' });
 			
 			//open new portfolio item form
 			$('#add_portfolio_top').click(function() {
@@ -1851,7 +1852,7 @@ $(document).ready(function() {
 			});
 			
 			//sets up item fields to be validated on change
-			var selector = '#portfolio_item_details_name, #portfolio_item_details_short_description';
+			var selector = '#portfolio_item_details_name, #portfolio_item_details_short_description, #portfolio_item_details_time';
 			$(selector).change(function() {
 				self.fieldChange();
 			});
@@ -2098,6 +2099,7 @@ $(document).ready(function() {
 			$('#portfolio_item_details_short_description').val(item.short_description).removeClass('unvalidated').trigger('keyup');
 			$('#portfolio_item_details_uri').val(item.uri);
 			$('#portfolio_item_details_live_url').val(item.live_url);
+			$('#portfolio_item_details_time').val(item.time).removeClass('unvalidated');
 			$('#portfolio_item_details_image').val(item.image);
 			$('#portfolio_item_details_image_small').val(item.image_small);
 			this.descriptionEditor.setEditorHTML(item.description);
@@ -2144,6 +2146,7 @@ $(document).ready(function() {
 			$('#portfolio_item_details_short_description').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_uri').val('');
 			$('#portfolio_item_details_live_url').val('');
+			$('#portfolio_item_details_time').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_image').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_image_small').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_right .image_preview').remove();
@@ -2159,6 +2162,7 @@ $(document).ready(function() {
 					short_description: $('#portfolio_item_details_short_description').val(),
 					uri: $('#portfolio_item_details_uri').val(),
 					live_url: $('#portfolio_item_details_live_url').val(),
+					time: $('#portfolio_item_details_time').val(),
 					image: $('#portfolio_item_details_image').val(),
 					image_small: $('#portfolio_item_details_image_small').val(),
 					description: $('#portfolio_editor_container').is(':visible') 
@@ -2174,7 +2178,8 @@ $(document).ready(function() {
 		 */
 		validateItemFields: function() {
 			var fields = ['portfolio_item_details_name', 
-			              'portfolio_item_details_short_description'],
+			              'portfolio_item_details_short_description',
+						  'portfolio_item_details_time'],
 			    valid = true;
 			
 			$.each(fields, function(ind, el) {
@@ -2223,6 +2228,7 @@ $(document).ready(function() {
 				short_description	: $('#portfolio_item_details_short_description').val(),
 				uri					: $('#portfolio_item_details_uri').val(),
 				live_url			: $('#portfolio_item_details_live_url').val(),
+				time				: $('#portfolio_item_details_time').val(),
 				image				: $('#portfolio_item_details_image').val(),
 				image_small			: $('#portfolio_item_details_image_small').val(),
 				description			: $('#portfolio_editor_container').is(':visible') 

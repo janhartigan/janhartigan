@@ -12,12 +12,12 @@ class Portfolio_Model extends CI_Model {
 	function addItem($data)
 	{
 		$qStr = "INSERT INTO portfolio (name, description, marked_up_description, short_description, uri, live_url, image, image_small, time)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], 
 											$data['uri'], $data['live_url'], $data['image'], $data['image_small'], $data['time']));
 		
 		if ($q)
-			return $this->getCreation($this->db->insert_id());
+			return $this->getItem($this->db->insert_id());
 		else
 			return array('success'=>false, 'error'=>"There was an error adding this item");
 	}

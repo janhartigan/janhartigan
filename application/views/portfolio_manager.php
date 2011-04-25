@@ -38,10 +38,10 @@ var portfolioData = <?php echo $portfolio['success'] ? json_encode($portfolio['i
 					</label>
 					<input type="text" id="portfolio_item_details_live_url" />
 					
-					<label for="portfolio_item_details_tags_input">
-						Tags
+					<label for="portfolio_item_details_time">
+						Time
 					</label>
-					<input type="text" id="portfolio_item_details_tags_input" />
+					<input type="text" id="portfolio_item_details_time" />
 				</div>
 				<div id="portfolio_item_details_right">
 					<label for="portfolio_item_details_image">
