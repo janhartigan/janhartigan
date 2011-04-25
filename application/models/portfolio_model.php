@@ -83,7 +83,7 @@ class Portfolio_Model extends CI_Model {
 		$q = $this->db->query($qStr, array(intval($id)));
 		
 		if ($q->num_rows() > 0)
-			return array('success'=>true, 'creation'=>$q->row_array());
+			return array('success'=>true, 'item'=>$q->row_array());
 		else
 			return array('success'=>false, 'error'=>"There is no portfolio item with that id");
 	}
@@ -121,7 +121,7 @@ class Portfolio_Model extends CI_Model {
 	{
 		$qStr = "SELECT p.*, GROUP_CONCAT(t.name SEPARATOR ', ') AS tools
 				FROM portfolio p
-					LEFT JOIN portfolio_tools pt ON c.id=pt.portfolio_id
+					LEFT JOIN portfolio_tools pt ON p.id=pt.portfolio_id
 					LEFT JOIN tools t ON pt.tool_id=t.id";
 		
 		if ($limit_uris)

@@ -478,3 +478,159 @@
 #creation_message.success {
 	background-color:#EBFFEB;
 }
+
+
+
+/**
+ * Portfolio section
+ */
+#portfolio_manager_container {
+	margin-bottom:35px;
+}
+#portfolio_list_container {
+	float:left;
+}
+#portfolio_item_area {
+	clear:left;
+	margin-top:10px;
+	padding-top:10px;
+	border-top:1px solid silver;
+	display:none;
+}
+#portfolio_item_area h4 {
+	float:left;
+	margin-bottom:5px;
+}
+#delete_portfolio_top {
+	clear:right;
+	float:right;
+	margin-bottom:8px;
+}
+#delete_portfolio_top:hover {
+	background-color:#B82924;
+}
+#add_portfolio_top {
+	clear:right;
+	float:right;
+	margin-bottom:8px;
+}
+#add_portfolio_top:hover {
+	background-color:#04A700;
+}
+#portfolio_item_area label {
+	display:block;
+	cursor:pointer;
+	margin:10px 0 5px;
+}
+#portfolio_editor_label {
+	margin:10px 0 5px 15px;
+}
+#portfolio_item_details_left {
+	float:left;
+	width:450px;
+	padding:0 40px 0 15px;
+	border-right:1px solid silver;
+}
+#portfolio_item_details_right {
+	float:right;
+	width:430px;
+}
+#portfolio_item_details_left input, #portfolio_item_details_left textarea {
+	width:100%;
+}
+#portfolio_item_details_short_description {
+	height:150px;
+	padding:3px;
+}
+#portfolio_item_details_right input {
+	width:380px;
+}
+#portfolio_item_area .image_preview {
+	margin:5px 0;
+}
+#portfolio_item_area .image_preview img {
+	float:left;
+	height:100px;
+}
+#portfolio_item_area .image_preview_x {
+	float:left;
+	margin-left:5px;
+	background-color:#DDD;
+	font-weight:bold;
+	border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+	padding:3px;
+	border:1px solid silver;
+	cursor:pointer;
+}
+#portfolio_item_area .image_preview_x:hover {
+	background-color:#B82924;
+	color:white;
+}
+#portfolio_editor_html {
+	display:none;
+	margin-left:15px;
+}
+#portfolio_editor_html textarea {
+	width:910px;
+	height:286px;
+}
+#portfolio_editor_container {
+	margin-left:8px;
+	margin-right:40px;
+}
+#portfolio_editor_container .yui-editor-editable-container {
+	height:150px !important;
+}
+#close_portfolio {
+	float:left;
+	margin:10px 8px 0 15px;
+}
+#close_portfolio:hover {
+	background-color:#B82924;
+}
+#delete_portfolio {
+	float:left;
+	margin:10px 8px 0 15px;
+}
+#delete_portfolio:hover {
+	background-color:#B82924;
+}
+#save_portfolio {
+	float:left;
+	margin:10px 8px 0 15px;
+}
+#save_portfolio:hover {
+	background-color:#04A700;
+}
+#html_portfolio_item {
+	float:left;
+	margin:10px 8px 0 15px;
+}
+#html_portfolio_item:hover {
+	background-color:#04A700;
+}
+#save_and_close_portfolio {
+	float:left;
+	margin:10px 8px 0 15px;
+}
+#save_and_close_portfolio:hover {
+	background-color:#04A700;
+}
+#portfolio_message {
+	float:left;
+	border:1px solid silver;
+	margin-top:10px;
+	padding:3px;
+	border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+	display:none;
+}
+#portfolio_message.error {
+	background-color:#F8C9C5;
+}
+#portfolio_message.success {
+	background-color:#EBFFEB;
+}
