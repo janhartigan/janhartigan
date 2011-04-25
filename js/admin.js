@@ -1341,7 +1341,7 @@ $(document).ready(function() {
 			//if there aren't any items at all
 			if (this.getItemDetailsLength() == 0) {
 				this.clearCreationItemFields();
-				$('#add_news').text("Add New Item");
+				$('#add_creation_top').text("Add Creation");
 				$('#creation_item_area').hide();
 				$('#active_items_list').html('');
 				return false;
