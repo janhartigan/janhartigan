@@ -105,7 +105,7 @@
 	float:right;
 	width:430px;
 }
-#news_item_details_title, #news_item_details_description, #news_item_details_date {
+#news_item_details_title, #news_item_details_description, #news_item_details_date, #news_item_details_title_url {
 	width:100%;
 }
 #news_item_details_image {

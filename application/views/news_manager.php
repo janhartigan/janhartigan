@@ -28,6 +28,11 @@ var newsData = <?php echo $news_items['success'] ? json_encode($news_items['item
 						Description <em>- characters left: <span class="character_count">150</span></em>
 					</label>
 					<textarea id="news_item_details_description"></textarea>
+					
+					<label for="news_item_details_title_url">
+						URI Title
+					</label>
+					<input type="text" id="news_item_details_title_url" />
 				</div>
 				<div id="news_item_details_right">
 					<label for="news_item_details_image">

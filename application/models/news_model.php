@@ -16,14 +16,15 @@ class News_Model extends CI_Model {
 		$published = $data['published'] == "yes" ? true : false;
 		$split_article = explode('<div class="article_division"></div>', $data['marked_up_content']);
 		$marked_up_content_short = $split_article[0];
+		$title_url = $data['title_url'] ? url_title($data['title_url'], 'dash', TRUE) : url_title($data['title'], 'dash', TRUE);
 		
 		$date = strtotime($data['date']); 
 		$date = date('Y-m-d', $date);
 		
-		$qStr = "INSERT INTO news (title, description, image, published, date, content, marked_up_content, marked_up_content_short)
+		$qStr = "INSERT INTO news (title, description, image, published, date, content, marked_up_content, marked_up_content_short, title_url)
 				VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['title'], $data['description'], $data['image'], $published, $date, $data['content'],
-											$data['marked_up_content'], $marked_up_content_short));
+											$data['marked_up_content'], $marked_up_content_short, $title_url));
 		
 		if ($q)
 			return $this->getItem($this->db->insert_id());
@@ -50,15 +51,16 @@ class News_Model extends CI_Model {
 		$published = ( $data['published'] == "yes" );
 		$split_article = explode('<div class="article_division"></div>', $data['marked_up_content']);
 		$marked_up_content_short = $split_article[0];
+		$title_url = $data['title_url'] ? url_title($data['title_url'], 'dash', TRUE) : url_title($data['title'], 'dash', TRUE);
 		
 		$date = strtotime($data['date']); 
 		$date = date('Y-m-d', $date);
 		
 		$qStr = "UPDATE news 
-					SET title=?, description=?, image=?, published=?, date=?, content=?, marked_up_content=?, marked_up_content_short=?
+					SET title=?, description=?, image=?, published=?, date=?, content=?, marked_up_content=?, marked_up_content_short=?, title_url=?
 				WHERE id=?";
 		$q = $this->db->query($qStr, array($data['title'], $data['description'], $data['image'], $published, $date, $data['content'], 
-											$data['marked_up_content'], $marked_up_content_short, intval($data['id'])));
+											$data['marked_up_content'], $marked_up_content_short, $title_url, intval($data['id'])));
 		
 		if ($q)
 			return $this->getItem($data['id']);

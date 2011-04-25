@@ -305,6 +305,7 @@ $(document).ready(function() {
 			var item = this.itemDetails['id'+this.activeItem];
 			
 			$('#news_item_details_title').val(item.title).removeClass('unvalidated').trigger('keyup');
+			$('#news_item_details_title_url').val(item.title_url).removeClass('unvalidated').trigger('keyup');
 			$('#news_item_details_description').val(item.description).removeClass('unvalidated').trigger('keyup');
 			$('#news_item_details_image').val(item.image).removeClass('unvalidated');
 			$('#news_item_details_date').val(item.date).removeClass('unvalidated');
@@ -345,6 +346,7 @@ $(document).ready(function() {
 		 */
 		clearNewsItemFields: function() {
 			$('#news_item_details_title').val('').removeClass('unvalidated');
+			$('#news_item_details_title_url').val('').removeClass('unvalidated');
 			$('#news_item_details_description').val('').removeClass('unvalidated');
 			$('#news_item_details_image').val('').removeClass('unvalidated');
 			$('#published_yes').trigger('click')
@@ -358,6 +360,7 @@ $(document).ready(function() {
 		storeNewsItemFields: function() {
 			this.itemDetails['id'+this.activeItem] = {
 					title: $('#news_item_details_title').val(),
+					title_url: $('#news_item_details_title_url').val(),
 					description: $('#news_item_details_description').val(),
 					image: $('#news_item_details_image').val(),
 					date: $('#news_item_details_date').val(),
@@ -411,7 +414,18 @@ $(document).ready(function() {
 		 * Saves a news item
 		 */
 		saveItem: function(close) {
-			var data = {},
+			var data = {
+					title: $('#news_item_details_title').val(),
+					title_url: $('#news_item_details_title_url').val(),
+					description: $('#news_item_details_description').val(),
+					image: $('#news_item_details_image').val(),
+					published: $('input[name=published]:checked').val(),
+					date: $('#news_item_details_date').val(),
+					content: $('#item_editor_container').is(':visible') 
+										? myEditor.getEditorHTML() 
+										: $('#item_editor_html textarea').val(),
+					id: this.activeItem
+				},
 				post = {},
 				self = this;
 			
@@ -420,16 +434,7 @@ $(document).ready(function() {
 				return false;
 			}
 			
-			data.title = $('#news_item_details_title').val();
-			data.description = $('#news_item_details_description').val();
-			data.image = $('#news_item_details_image').val();
-			data.published = $('input[name=published]:checked').val();
-			data.date = $('#news_item_details_date').val();
-			data.content = $('#item_editor_container').is(':visible') 
-								? myEditor.getEditorHTML() 
-								: $('#item_editor_html textarea').val();
 			data.marked_up_content = this.prepareItemContent(data.content);
-			data.id = this.activeItem;
 			
 			post = {data: $.toJSON(data)};
 			
