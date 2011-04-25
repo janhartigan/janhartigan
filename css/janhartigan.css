@@ -317,11 +317,15 @@ h4 {
 	display:block;
 	float:left;
 	padding:5px;
-	margin:0 10px 10px 0;
+	margin:0 15px 15px 0;
 	border:1px solid white;
 	border-radius:4px;
     -moz-border-radius:4px;
     -webkit-border-radius:4px;
+	width:306px;
+	line-height:22px;
+	cursor:pointer;
+	color:black !important;
 }
 #creations_list_main .creations_landing_item:hover {
 	background-color:#d0e7a1;
@@ -332,9 +336,30 @@ h4 {
 }
 #creations_list_main .creations_landing_item > img {
 	display:block;
-	margin-bottom:8px;
+	float:left;
+	margin:0 8px 8px 0;
 }
-
+#creations_list_main .creation_short_description {
+	clear:both;
+}
+#creations_list_main .creation_right_info {
+	float:right;
+	width:148px;
+}
+#creations_list_main .creation_small_time time {
+	font-style:italic;
+}
+#creations_list_main .creation_small_time strong {
+	display:inline-block;
+	width:67px;
+}
+#creations_list_main .creation_right_info hr {
+	margin:4px 0;
+	border-color:#e2e2e2;
+}
+#creations_list_main .creation_tools {
+	line-height:18px;
+}
 
 /**
  * Creation view
