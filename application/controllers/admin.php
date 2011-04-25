@@ -218,6 +218,19 @@ class Admin extends MY_Controller {
 	}
 	
 	/**
+	 * Syncs all creations with github
+	 */
+	function syncCreationsWithGitHub()
+	{
+		//if it isn't ajax, redirect to home page
+		if (!isAjax())
+			redirect('');
+		
+		$this->load->model('creations_model');
+		killScript($this->creations_model->syncWithGitHub()); 
+	}
+	
+	/**
 	 * Deletes files
 	 */
 	function deleteFiles()

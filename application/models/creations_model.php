@@ -162,4 +162,55 @@ class Creations_Model extends CI_Model {
 		else
 			return array('success'=>false, 'error'=>"This creation has no tools");
 	}
+	
+	/**
+	 * Updates the "update_time" field for each creation based on the latest github repo activity
+	 * 
+	 * @return bool
+	 */
+	function syncWithGitHub()
+	{
+		$creations = $this->getCreations();
+		
+		if (!$creations['success'])
+			return true;
+		
+		//cycle over each creation
+		foreach($creations['creations'] as $c) {
+			
+			//if there is no github_url, continue to the next item
+			if (!$c['github_url'])
+				continue;
+			
+			//extract the uri from the github_url
+			$git_uri = str_replace('https://github.com/', '', $c['github_url']);
+			
+			//get the json data from the github api
+			$json = file_get_contents('https://github.com/api/v2/json/repos/show/'.$git_uri);
+			
+			//decode the json data into an associative array
+			$data = json_decode($json, true);
+			
+			//if the proper data is there, run the setUpdateTime function in order to sync the times
+			if (isset($data['repository']) && isset($data['repository']['pushed_at']))
+				$this->setUpdateTime($c['id'], $data['repository']['pushed_at']);
+		}
+	}
+	
+	/**
+	 * Sets a particular creation's update_time given the creation id and the update time
+	 * 
+	 * @param int		id
+	 * @param string	time
+	 * 
+	 * @param bool
+	 */
+	function setUpdateTime($id, $time)
+	{
+		$qStr = "UPDATE creations 
+					SET update_time = ?
+				WHERE id = ?";
+		
+		return $this->db->query($qStr, array(strval($time), intval($id)));
+	}
 }

@@ -334,12 +334,12 @@
 #delete_creation_top:hover {
 	background-color:#B82924;
 }
-#add_creation_top {
+#add_creation_top, #sync_github_creations {
 	clear:right;
 	float:right;
 	margin-bottom:8px;
 }
-#add_creation_top:hover {
+#add_creation_top:hover, #sync_github_creations:hover {
 	background-color:#04A700;
 }
 #creation_item_area label {

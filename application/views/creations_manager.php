@@ -13,6 +13,7 @@ var creationsData = <?php echo $creations['success'] ? json_encode($creations['c
 			</div>
 			<div id="add_creation_top" class="admin_button">Add Creation</div>
 			<div id="delete_creation_top" class="admin_button">Delete Selected</div>
+			<div id="sync_github_creations" class="admin_button">Sync With Github</div>
 			<div class="clear"></div>
 			<div id="creation_item_area">
 				<h4>Creation Details:</h4>

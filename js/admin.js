@@ -1106,6 +1106,11 @@ $(document).ready(function() {
 				self.toggleAddItem();
 			});
 			
+			//creations github sync
+			$('#sync_github_creations').click(function() {
+				self.syncWithGitHub();
+			});
+			
 			//save creation
 			$('#save_creation').click(function() {
 				self.saveItem();
@@ -1421,6 +1426,25 @@ $(document).ready(function() {
 					
 					self.checkItemData();
 					self.renderActiveItem();
+				} else {
+					alert(data.error);
+				}
+			}, 'text');
+		},
+		
+		/**
+		 * Syncs all creations with their github repos
+		 */
+		syncWithGitHub: function(id) {
+			var self = this;
+			
+			$.post('/admin/synccreationswithgithub/'+id, '', function(textdata) {
+				alert(textdata);
+				
+				var data = $.evalJSON(textdata);
+				
+				if (data.success) {
+					alert('Successfully synched');
 				} else {
 					alert(data.error);
 				}
