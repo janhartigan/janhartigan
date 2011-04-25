@@ -14,14 +14,16 @@ class News_Model extends CI_Model {
 	{
 		//prepare values
 		$published = $data['published'] == "yes" ? true : false;
+		$split_article = explode('<div class="article_division"></div>', $data['marked_up_content']);
+		$marked_up_content_short = $split_article[0];
 		
 		$date = strtotime($data['date']); 
 		$date = date('Y-m-d', $date);
 		
-		$qStr = "INSERT INTO news (title, description, image, published, date, content, marked_up_content)
+		$qStr = "INSERT INTO news (title, description, image, published, date, content, marked_up_content, marked_up_content_short)
 				VALUES (?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['title'], $data['description'], $data['image'], $published, $date, $data['content'],
-											$data['marked_up_content']));
+											$data['marked_up_content'], $marked_up_content_short));
 		
 		if ($q)
 			return $this->getItem($this->db->insert_id());
