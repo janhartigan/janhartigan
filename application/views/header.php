@@ -14,7 +14,7 @@
 <meta name="og:image" content="<?php echo base_url().$window_image?>" />
 <?php }?>
 <title><?php echo $window_title?></title>
-<link rel="Shortcut Icon" href="<?php echo base_url()?>favicon.ico"> 
+<link rel="Shortcut Icon" href="<?php echo base_url()?>images/favicon.ico"> 
 <link href="<?php echo base_url()?>css/includes.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url()?>css/janhartigan.css" rel="stylesheet" type="text/css"/>
 <?php if (isAdmin() && $this->router->class == 'admin') : ?>
