@@ -25,6 +25,7 @@ class Admin extends MY_Controller {
 		$this->selected_menu = 'admin';
 		$this->load->model('news_model');
 		$this->load->model('creations_model');
+		$this->load->model('portfolio_model');
 	}
 	
 	/**
