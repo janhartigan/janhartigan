@@ -140,7 +140,7 @@ class Portfolio_Model extends CI_Model {
 		$q = $this->db->query($qStr);
 		
 		if ($q->num_rows() > 0)
-			return array('success'=>true, 'portfolio'=>$q->result_array());
+			return array('success'=>true, 'items'=>$q->result_array());
 		else
 			return array('success'=>false, 'error'=>"No items found");
 	}
