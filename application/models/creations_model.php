@@ -166,10 +166,13 @@ class Creations_Model extends CI_Model {
 	/**
 	 * Updates the "update_time" field for each creation based on the latest github repo activity
 	 * 
-	 * @return bool
+	 * @return array('success' ? void : 'error')
 	 */
 	function syncWithGitHub()
 	{
+		$error = '';
+		
+		//first get the creations
 		$creations = $this->getCreations();
 		
 		if (!$creations['success'])
@@ -194,7 +197,13 @@ class Creations_Model extends CI_Model {
 			//if the proper data is there, run the setUpdateTime function in order to sync the times
 			if (isset($data['repository']) && isset($data['repository']['pushed_at']))
 				$this->setUpdateTime($c['id'], $data['repository']['pushed_at']);
+			else {
+				$error = 'Failed to grab data for '.$c['name'];
+				break;
+			}
 		}
+		
+		return ( empty($error) ? array('success'=>true) : array('success'=>false, 'error'=>$error) );
 	}
 	
 	/**
