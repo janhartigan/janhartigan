@@ -121,12 +121,16 @@ class Creations_Model extends CI_Model {
 	 */
 	function getCreations($rows = 10, $page = 0, $limit_uris = false, $sort='date')
 	{
-		$qStr = "SELECT * FROM creations";
+		$qStr = "SELECT c.*, GROUP_CONCAT(t.name SEPARATOR ', ') AS tools
+				FROM creations c
+					LEFT JOIN creations_tools ct ON c.id=ct.creation_id
+					LEFT JOIN tools t ON ct.tool_id=t.id";
 		
 		if ($limit_uris)
-			$qStr .= " WHERE uri!=''";
-			
-		$qStr .= " ORDER BY time DESC";
+			$qStr .= " WHERE c.uri!=''";
+		
+		$qStr .= " GROUP BY c.id";
+		$qStr .= " ORDER BY c.time DESC";
 		
 		if (!is_null($rows)) {
 			$page = intval($page);
