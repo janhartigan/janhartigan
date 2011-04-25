@@ -79,6 +79,20 @@ class Admin extends MY_Controller {
 		$this->loadPage();
 	}
 	
+	/**
+	 * Portfolio manager
+	 * 
+	 * @access public
+	 */
+	function portfolio()
+	{
+		$this->load->model('portfolio_model');
+		$portfolio = $this->portfolio_model->getPortfolio();
+		
+		$this->content  = $this->load->view('portfolio_manager', array('portfolio'=>$portfolio, 'admin_page'=>'portfolio'), true);
+		$this->loadPage();
+	}
+	
 	
 	
 	////////////////////////////////////////////
@@ -228,6 +242,64 @@ class Admin extends MY_Controller {
 		
 		$this->load->model('creations_model');
 		killScript($this->creations_model->syncWithGitHub()); 
+	}
+
+	/**
+	 * Either saves an existing creation or adds a new one...returns item data
+	 */
+	function savePortfolioItem()
+	{
+		$data = $this->getAjaxData();
+		
+		//then attempt to save item to database
+		if (isset($data['id']) && intval($data['id']))
+			//it's an existing item
+			killScript($this->portfolio_model->saveItem($data));
+		else
+			//it's a new item
+			killScript($this->portfolio_model->addItem($data));
+	}
+	
+	/**
+	 * Deletes a portfolio item by its id
+	 */
+	function deletePortfolioItem()
+	{
+		$data = $this->getAjaxData();
+		
+		if (!isset($data['id']))
+			killScript(array('success'=>false, 'error'=>"No data supplied"));
+		
+		//then attempt to delete item from database
+		killScript($this->portfolio_model->deleteItem($data['id']));
+	}
+	
+	/**
+	 * Retrieves a portfolio item by id
+	 */
+	function getPortfolioItem($id = null)
+	{
+		//if it isn't ajax, redirect to home page
+		if (!isAjax())
+			redirect('');
+		
+		//first get data. if it isn't there, kill script
+		if (is_null($id))
+			killScript(array('success'=>false, 'error'=>"No data supplied"));
+		
+		killScript($this->portfolio_model->getItem($id)); 
+	}
+	
+	/**
+	 * Retrieves the portfolio
+	 */
+	function getPortfolio()
+	{
+		//if it isn't ajax, redirect to home page
+		if (!isAjax())
+			redirect('');
+		
+		killScript($this->portfolio_model->getPortfolio()); 
 	}
 	
 	/**
