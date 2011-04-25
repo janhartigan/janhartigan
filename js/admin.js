@@ -7,6 +7,9 @@ $(document).ready(function() {
 	
 	if (typeof(creationsData) != 'undefined')
 		creations.initiate();
+	
+	if (typeof(portfolioData) != 'undefined')
+		portfolio.initiate();
 });
 
 /*///////////////////////////////////////////////////////////////
