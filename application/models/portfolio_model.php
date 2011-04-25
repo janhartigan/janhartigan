@@ -11,10 +11,12 @@ class Portfolio_Model extends CI_Model {
 	 */
 	function addItem($data)
 	{
+		$title_url = $data['uri'] ? url_title($data['uri'], 'dash', TRUE) : url_title($data['name'], 'dash', TRUE);
+		
 		$qStr = "INSERT INTO portfolio (name, description, marked_up_description, short_description, uri, live_url, image, image_small, time)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], 
-											$data['uri'], $data['live_url'], $data['image'], $data['image_small'], $data['time']));
+											$title_url, $data['live_url'], $data['image'], $data['image_small'], $data['time']));
 		
 		if ($q)
 			return $this->getItem($this->db->insert_id());
@@ -36,13 +38,15 @@ class Portfolio_Model extends CI_Model {
 		if (!$item['success'])
 			return $item;
 		
+		$title_url = $data['uri'] ? url_title($data['uri'], 'dash', TRUE) : url_title($data['name'], 'dash', TRUE);
+		
 		//prepare values
 		$id = intval($data['id']);
 		
 		$qStr = "UPDATE portfolio
 					SET name=?, description=?, marked_up_description=?, short_description=?, uri=?, live_url=?, image=?, image_small=?, time=?
 				WHERE id=?";
-		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], $data['uri'], 
+		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], $title_url, 
 											$data['live_url'], $data['image'], $data['image_small'], $data['time'], $id));
 		
 		if ($q)
