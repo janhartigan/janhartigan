@@ -477,6 +477,43 @@ h4 {
 }
 
 
+
+/**
+ * Portfolio item
+ */
+#portfolio_item {
+	line-height:22px;
+}
+#portfolio_item > img {
+	display:block;
+	float:right;
+	margin-left:8px;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
+}
+#portfolio_item .portfolio_left_info {
+	float:left;
+	width:360px;
+}
+#portfolio_item .portfolio_small_time time {
+	font-style:italic;
+}
+#portfolio_item .portfolio_external_link {
+	
+}
+#portfolio_item hr {
+	margin:25px 0;
+}
+#portfolio_item .portfolio_tools {
+	line-height:18px;
+	margin:10px 0;
+}
+
+
 /**
  * Footer
  */

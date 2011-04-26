@@ -82,8 +82,11 @@ class Portfolio_Model extends CI_Model {
 	 */
 	function getItem($id)
 	{
-		$qStr = "SELECT * FROM portfolio
-				WHERE id=?";
+		$qStr = "SELECT p.*, GROUP_CONCAT(t.name SEPARATOR ', ') AS tools
+				FROM portfolio p
+					LEFT JOIN portfolio_tools pt ON p.id=pt.portfolio_id
+					LEFT JOIN tools t ON pt.tool_id=t.id
+				WHERE p.id=?";
 		$q = $this->db->query($qStr, array(intval($id)));
 		
 		if ($q->num_rows() > 0)
@@ -101,8 +104,11 @@ class Portfolio_Model extends CI_Model {
 	 */
 	function getItemByUri($uri)
 	{
-		$qStr = "SELECT * FROM portfolio
-				WHERE uri=?";
+		$qStr = "SELECT p.*, GROUP_CONCAT(t.name SEPARATOR ', ') AS tools
+				FROM portfolio p
+					LEFT JOIN portfolio_tools pt ON p.id=pt.portfolio_id
+					LEFT JOIN tools t ON pt.tool_id=t.id
+				WHERE p.uri=?";
 		$q = $this->db->query($qStr, array($uri));
 		
 		if ($q->num_rows() > 0)
