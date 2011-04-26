@@ -18,6 +18,7 @@
 <link href="<?php echo base_url()?>css/includes.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url()?>css/janhartigan.css" rel="stylesheet" type="text/css"/>
 <?php if (isAdmin() && $this->router->class == 'admin') : ?>
+<link href="<?php echo base_url()?>css/admin-includes.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url()?>css/admin.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url()?>css/ui-lightness/jquery-ui-1.8.5.custom.css" />
 <link href="<?php echo base_url()?>css/ui.jqgrid.css" rel="stylesheet" type="text/css"/>
