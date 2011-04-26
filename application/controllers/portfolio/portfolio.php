@@ -33,8 +33,33 @@ class Portfolio extends MY_Controller {
 		$this->title = 'Portfolio - janhartigan.com';
 		$this->image = '/images/portfolio_icon.png';
 		$this->selected_menu = 'portfolio';
-		//$this->content  = $this->load->view('portfolio/portfolio_home', $data, true);
-		$this->content  = '';
+		$this->content  = $this->load->view('portfolio/portfolio_home', $data, true);
+		$this->loadPage();
+	}
+	
+	/**
+	 * portfolio item function
+	 * 
+	 * @access public
+	 */
+	function item($uri='')
+	{
+		$item = $this->portfolio_model->getItemByUri($uri);
+		
+		if (empty($uri) || !$item['success'])
+			redirect('portfolio');
+		
+		$data = array(
+					'item'=>$item['item'] 
+				);
+		
+		
+		
+		$this->description = $data['item']['short_description'];
+		$this->title = $data['item']['name'].' - Portfolio - janhartigan.com';
+		$this->image = $data['item']['image_small'];
+		$this->selected_menu = 'portfolio';
+		$this->content  = $this->load->view('portfolio/portfolio_item', $data, true);
 		$this->loadPage();
 	}
 }

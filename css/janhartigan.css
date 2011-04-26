@@ -416,6 +416,67 @@ h4 {
 	margin:15px 0;
 }
 
+
+/**
+ * Portfolio landing
+ */
+#portfolio_list_main {
+	
+}
+#portfolio_list_main .portfolio_home_item {
+	display:block;
+	padding:5px;
+	margin:15px 0;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	line-height:22px;
+	cursor:pointer;
+	color:black !important;
+}
+#portfolio_list_main .portfolio_home_item:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#portfolio_list_main .portfolio_home_item > img {
+	display:block;
+	float:right;
+	margin-left:8px;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
+}
+#portfolio_list_main .portfolio_short_description {
+	clear:both;
+	margin:10px 0;
+}
+#portfolio_list_main .portfolio_left_info {
+	float:left;
+	width:350px;
+}
+#portfolio_list_main .portfolio_small_time time {
+	font-style:italic;
+}
+#portfolio_list_main .portfolio_small_time strong {
+	display:inline-block;
+	width:67px;
+}
+#portfolio_list_main hr {
+	margin:5px 0;
+	
+}
+#portfolio_list_main .portfolio_tools {
+	line-height:18px;
+}
+
+
 /**
  * Footer
  */

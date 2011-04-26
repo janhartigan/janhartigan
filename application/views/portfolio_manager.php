@@ -45,7 +45,7 @@ var portfolioData = <?php echo $portfolio['success'] ? json_encode($portfolio['i
 				</div>
 				<div id="portfolio_item_details_right">
 					<label for="portfolio_item_details_image">
-						Image URL
+						Image URL (750x275px)
 					</label>
 					
 					<input type="text" id="portfolio_item_details_image" readonly="readonly" />
