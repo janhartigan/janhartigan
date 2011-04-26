@@ -1822,7 +1822,7 @@ $(document).ready(function() {
 			
 			this.initiateAdminGrid();
 			this.initiateTextEditor();
-			characters.addField($('#portfolio_item_details_short_description'), 600);
+			characters.addField($('#portfolio_item_details_short_description'), 400);
 			$('#portfolio_item_details_time').datepicker({ dateFormat: 'yy-mm-dd' });
 			
 			//open new portfolio item form
