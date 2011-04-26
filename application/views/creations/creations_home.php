@@ -1,4 +1,3 @@
-<h2>Creations</h2>
 <div id="creations_list_main">
 	<?php if ($creations['success']) {?>
 		<?php $i = 0;?>
