@@ -75,6 +75,10 @@ img {
 	border:0;
 }
 
+p {
+	margin:0 0 20px;
+}
+
 textarea {
 	font-family:  arial, helvetica, sans-serif;
 }
@@ -88,6 +92,10 @@ h2 {
 	font-size:22px;
 	margin-bottom:15px;
 	color:#09193c;
+}
+
+h2.underline {
+	text-decoration:underline;
 }
 
 h2 > a {
@@ -394,6 +402,11 @@ h4 {
 .creation_info_two_column .main_creation_image {
 	max-width:365px;
 	margin:20px 0;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
 }
 .creation_info_two_column .github_link {
 	padding:5px;

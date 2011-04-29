@@ -1,3 +1,4 @@
+<h2 class="underline"><a href="/creations">Creations</a></h2>
 <?php if ($creations['success']) {?>
 <ul id="creations_list">
 	<?php foreach ($creations['creations'] as $item) {?>
