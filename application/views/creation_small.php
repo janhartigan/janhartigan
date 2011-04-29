@@ -4,7 +4,7 @@
 	<?php }?>
 	<h3><?php echo $creation['name']?></h3>
 	<div class="creation_small_time">
-		<time datetime="<?php echo $creation['time']?>" pubdate><?php echo date('Y-m-d', strtotime($creation['time']))?></time>
+		<time datetime="<?php echo $creation['time']?>" pubdate><?php echo date('F j, Y', strtotime($creation['time']))?></time>
 	</div>
 	
 	<div class="creation_short_description"><?php echo $creation['short_description']?></div>

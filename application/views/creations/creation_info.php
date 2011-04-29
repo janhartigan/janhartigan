@@ -9,8 +9,8 @@
 		<?php }?>
 		
 		<h2>Creation - <?php echo $c['name']?></h2>
-		<div><em>date: 
-			<time datetime="<?php echo $c['time']?>"><?php echo date('Y-m-d', strtotime($c['time']))?></time>
+		<div><em>
+			<time datetime="<?php echo $c['time']?>"><?php echo date('F j, Y', strtotime($c['time']))?></time>
 		</em></div>
 		
 		<?php if ($c['image']) {?>

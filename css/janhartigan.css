@@ -296,6 +296,12 @@ h4 {
 	display:block;
 	float:right;
 	margin:0 0 5px 5px;
+	border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
 }
 #creations_list .creation_small_time {
 	margin:0 0 5px;
@@ -338,6 +344,12 @@ h4 {
 	display:block;
 	float:left;
 	margin:0 8px 8px 0;
+	border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
 }
 #creations_list_main .creation_short_description {
 	clear:both;
@@ -348,14 +360,11 @@ h4 {
 }
 #creations_list_main .creation_small_time time {
 	font-style:italic;
+	display:block;
 }
-#creations_list_main .creation_small_time strong {
-	display:inline-block;
-	width:67px;
-}
-#creations_list_main .creation_right_info hr {
+#creations_list_main .creation_right_info .border {
 	margin:4px 0;
-	border-color:#e2e2e2;
+	border-bottom:1px solid #e2e2e2;
 }
 #creations_list_main .creation_tools {
 	line-height:18px;
@@ -376,6 +385,7 @@ h4 {
 	float:right;
 	width:594px;
 	min-height:435px;
+	line-height:20px;
 }
 .creation_info_two_column {
 	float:left;
@@ -383,7 +393,7 @@ h4 {
 }
 .creation_info_two_column .main_creation_image {
 	max-width:365px;
-	margin:7px 0;
+	margin:20px 0;
 }
 .creation_info_two_column .github_link {
 	padding:5px;

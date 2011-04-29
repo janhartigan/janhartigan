@@ -6,14 +6,10 @@
 	
 	<div class="creation_right_info">
 		<div class="creation_small_time">
-			<strong>Published:</strong>
-			<time datetime="<?php echo $creation['time']?>" pubdate><?php echo date('Y-m-d', strtotime($creation['time']))?></time>
+			<strong>Latest Activity:</strong>
+			<time datetime="<?php echo $creation['time']?>" pubdate><?php echo date('F j, Y', strtotime($creation['update_time']))?></time>
 		</div>
-		<div class="creation_small_time">
-			<strong>Updated:</strong>
-			<time datetime="<?php echo $creation['update_time']?>"><?php echo date('Y-m-d', strtotime($creation['update_time']))?></time>
-		</div>
-		<hr/>
+		<div class="border"></div>
 		<div class="creation_tools">
 			<strong>Tools:</strong>
 			<?php echo $creation['tools']?>
