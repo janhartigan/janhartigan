@@ -484,7 +484,12 @@ h4 {
 #portfolio_item {
 	line-height:22px;
 }
-#portfolio_item > img {
+#portfolio_item .top_section {
+	padding-bottom:20px;
+	border-bottom:1px solid silver;
+	margin-bottom:20px;
+}
+#portfolio_item .top_section > img {
 	display:block;
 	float:right;
 	margin-left:8px;
@@ -505,12 +510,23 @@ h4 {
 #portfolio_item .portfolio_external_link {
 	
 }
-#portfolio_item hr {
-	margin:25px 0;
-}
 #portfolio_item .portfolio_tools {
 	line-height:18px;
 	margin:10px 0;
+}
+#portfolio_disqus_container {
+	float:right;
+	margin:0 0 0 20px;
+	padding:0 0 0 20px;
+	width:365px;
+	border-left:1px solid silver;
+}
+#portfolio_item .portfolio_description {
+	width:593px;
+	line-height:22px;
+}
+#portfolio_item .portfolio_description img {
+	margin:15px 0;
 }
 
 

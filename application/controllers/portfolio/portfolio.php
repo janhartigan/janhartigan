@@ -59,6 +59,7 @@ class Portfolio extends MY_Controller {
 		$this->title = $data['item']['name'].' - Portfolio - janhartigan.com';
 		$this->image = $data['item']['image_small'];
 		$this->selected_menu = 'portfolio';
+		$this->disqus = 'portfolio-'.$data['item']['uri'];
 		$this->content  = $this->load->view('portfolio/portfolio_item', $data, true);
 		$this->loadPage();
 	}
