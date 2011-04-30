@@ -254,6 +254,7 @@ h4 {
 .simple_list {
 	list-style-type:disc;
 	padding-left:30px;
+	margin:20px 0;
 }
 .simple_list > li {
 	margin-bottom:5px;
