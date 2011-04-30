@@ -550,7 +550,13 @@ h4 {
 	line-height:22px;
 }
 #portfolio_item .portfolio_description img {
-	margin:15px 0;
+	margin:0 0 15px 15px;
+	border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
 }
 
 
