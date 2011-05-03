@@ -16,9 +16,7 @@ class User extends MY_Controller {
 	 */
 	function index()
 	{
-		$this->content  = "userpage";
-		$this->title = "aptgif: user";
-		$this->loadPage();
+		redirect('');
 	}
 	
 	/**
