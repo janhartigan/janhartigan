@@ -49,6 +49,9 @@ class Admin extends MY_Controller {
 		$news_items = $this->news_model->getItems(null, null, false);
 		
 		$this->content  = $this->load->view('news_manager', array('news_items'=>$news_items, 'admin_page'=>'news'), true);
+		$this->description = 'The news admin page for janhartigan.com';
+		$this->title = 'Admin News - janhartigan.com';
+		
 		$this->loadPage();
 	}
 	
@@ -63,6 +66,9 @@ class Admin extends MY_Controller {
 		$files = $this->files_model->getFiles();
 		
 		$this->content  = $this->load->view('file_manager', array('files'=>$files, 'admin_page'=>'files'), true);
+		$this->description = 'The files admin page for janhartigan.com';
+		$this->title = 'Admin Files - janhartigan.com';
+		
 		$this->loadPage();
 	}
 	
@@ -77,6 +83,9 @@ class Admin extends MY_Controller {
 		$creations = $this->creations_model->getCreations();
 		
 		$this->content  = $this->load->view('creations_manager', array('creations'=>$creations, 'admin_page'=>'creations'), true);
+		$this->description = 'The creations admin page for janhartigan.com';
+		$this->title = 'Admin Creations - janhartigan.com';
+		
 		$this->loadPage();
 	}
 	
@@ -91,6 +100,9 @@ class Admin extends MY_Controller {
 		$portfolio = $this->portfolio_model->getPortfolio();
 		
 		$this->content  = $this->load->view('portfolio_manager', array('portfolio'=>$portfolio, 'admin_page'=>'portfolio'), true);
+		$this->description = 'The portfolio admin page for janhartigan.com';
+		$this->title = 'Admin Portfolio - janhartigan.com';
+		
 		$this->loadPage();
 	}
 	
