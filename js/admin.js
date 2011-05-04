@@ -78,7 +78,8 @@ $(document).ready(function() {
 			});
 			
 			//sets up news item fields to be validated on change
-			var selector = '#news_item_details_title, #news_item_details_image, #news_item_details_description, #news_item_details_date';
+			var selector = '#news_item_details_title, #news_item_details_image, #news_item_details_description, #news_item_details_date' +
+							'#item_editor_html textarea';
 			$(selector).change(function() {
 				self.fieldChange();
 			});
@@ -319,6 +320,8 @@ $(document).ready(function() {
 				$('#published_yes').trigger('click')
 			else
 				$('#published_no').trigger('click')
+			
+			$('#active_items_list input[value=id' + this.activeItem + ']').parent().addClass('active_item_tag');
 			
 			return true;
 		},
@@ -1416,6 +1419,8 @@ $(document).ready(function() {
 				}
 			});
 			
+			$('#active_items_list input[value=id' + this.activeItem + ']').parent().addClass('active_item_tag');
+			
 			return true;
 		},
 		
@@ -1852,7 +1857,8 @@ $(document).ready(function() {
 			});
 			
 			//sets up item fields to be validated on change
-			var selector = '#portfolio_item_details_name, #portfolio_item_details_short_description, #portfolio_item_details_time';
+			var selector = '#portfolio_item_details_name, #portfolio_item_details_short_description, #portfolio_item_details_time,' +
+							'#portfolio_editor_html textarea';
 			$(selector).change(function() {
 				self.fieldChange();
 			});
@@ -2113,6 +2119,8 @@ $(document).ready(function() {
 					$this.after(self.image_preview[0] + $this.attr('id') + self.image_preview[1] + $this.val() + self.image_preview[2]);
 				}
 			});
+			
+			$('#active_items_list input[value=id' + this.activeItem + ']').parent().addClass('active_item_tag');
 			
 			return true;
 		},
