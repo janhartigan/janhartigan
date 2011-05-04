@@ -1452,8 +1452,6 @@ $(document).ready(function() {
 			var self = this;
 			
 			$.post('/admin/synccreationswithgithub/'+id, '', function(textdata) {
-				alert(textdata);
-				
 				var data = $.evalJSON(textdata);
 				
 				if (data.success) {
