@@ -24,7 +24,8 @@ class User extends MY_Controller {
 	 */
 	function login()
 	{
-		$this->title = "aptgif: login / register";
+		$this->title = "Login - janhartigan.com";
+		$this->description = "Login page for janhartigan.com";
 		$this->content = $this->load->view('login', '', true);
 		$this->loadPage();
 	}
@@ -52,6 +53,7 @@ class User extends MY_Controller {
 	public function registerSubmit() 
 	{
 		$this->title = "login / register";
+		redirect(''); die();
 		
 		if (isAjax()) {
 			//take ajax-submitted user data and check against db
