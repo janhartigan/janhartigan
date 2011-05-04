@@ -1883,6 +1883,8 @@ $(document).ready(function() {
 					
 					this.parent().find('input[value="' + this.attr('id') + '"]').parent().remove();
 					this.after(self.image_preview[0] + this.attr('id') + self.image_preview[1] + data.path + self.image_preview[2]);
+					
+					self.fieldChange();
 				}
 			});
 			
