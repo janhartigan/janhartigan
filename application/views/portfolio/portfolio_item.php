@@ -33,5 +33,8 @@
 	<h3>Description</h3>
 	<div class="portfolio_description">
 		<?php echo $item['marked_up_description']?>
+		
+		<p>If you want to ask me more questions about this project, or if you're interested in my services, please check out my 
+		<a href="/contact">contact page</a>.</p>
 	</div>
 </div>
