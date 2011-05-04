@@ -15,6 +15,7 @@
 				<strong>Link:</strong>
 				<?php if ($item['live_url']) {?>
 					<a href="<?php echo $item['live_url']?>"><?php echo $item['live_url']?></a>
+					<div><em>(Note: it's possible that this site no longer accurately represents the work I did for this client)</em></div>
 				<?php } else {?>
 					<em>This site is no longer online.</em>
 				<?php }?>
