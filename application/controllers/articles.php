@@ -21,12 +21,17 @@ class Articles extends MY_Controller {
 	/**
 	 * index function
 	 * 
+	 * @param int		page
+	 * 
 	 * @access public
 	 */
-	function index()
+	function index($page = 1)
 	{
-		$this->content = $this->load->view('articles/articles', '', true);
-		$this->selected_menu = 'articles';
+		$data = array(
+					'articles'=>$this->articles_model->getItems(10, $page)
+				);
+		
+		$this->content = $this->load->view('articles/articles', $data, true);
 		$this->loadPage();
 	}
 	
