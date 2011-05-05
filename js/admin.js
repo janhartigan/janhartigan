@@ -191,6 +191,8 @@ $(document).ready(function() {
 		 * Reselects all selected rows in the jqgrid after sorting or reloading the table data
 		 */
 		setSelectedRows: function() {
+			$("#news_list").jqGrid('resetSelection');
+			
 			$.each(this.selectedItemIds, function(ind, el) {
 				var rowId = $('td[aria-describedby=news_list_id][title='+el+']').parent().attr('id');
 				$("#news_list").jqGrid('setSelection', rowId, false);
@@ -1275,6 +1277,8 @@ $(document).ready(function() {
 		 * Reselects all selected rows in the jqgrid after sorting or reloading the table data
 		 */
 		setSelectedRows: function() {
+			$("#creations_list").jqGrid('resetSelection');
+			
 			$.each(this.selectedItemIds, function(ind, el) {
 				var rowId = $('td[aria-describedby=creations_list_id][title='+el+']').parent().attr('id');
 				$("#creations_list").jqGrid('setSelection', rowId, false);
@@ -1985,6 +1989,8 @@ $(document).ready(function() {
 		 * Reselects all selected rows in the jqgrid after sorting or reloading the table data
 		 */
 		setSelectedRows: function() {
+			$("#portfolio_list").jqGrid('resetSelection');
+			
 			$.each(this.selectedItemIds, function(ind, el) {
 				var rowId = $('td[aria-describedby=portfolio_list_id][title='+el+']').parent().attr('id');
 				$("#portfolio_list").jqGrid('setSelection', rowId, false);
