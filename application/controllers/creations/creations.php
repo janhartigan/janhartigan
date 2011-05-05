@@ -33,7 +33,7 @@ class Creations extends MY_Controller {
 		$this->title = 'Creations - janhartigan.com';
 		$this->image = '/images/creations_icon.png';
 		$this->selected_menu = 'creations';
-		$this->content  = $this->load->view('creations/creations_home', $data, true);
+		$this->content  = $this->load->view('creations/creations_landing', $data, true);
 		$this->loadPage();
 	}
 }

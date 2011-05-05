@@ -23,7 +23,7 @@ class Admin extends MY_Controller {
 				redirect(base_url());
 			
 		$this->selected_menu = 'admin';
-		$this->load->model('news_model');
+		$this->load->model('articles_model');
 		$this->load->model('creations_model');
 		$this->load->model('portfolio_model');
 	}
@@ -44,13 +44,13 @@ class Admin extends MY_Controller {
 	 * 
 	 * @access public
 	 */
-	function news()
+	function articles()
 	{
-		$news_items = $this->news_model->getItems(null, null, false);
+		$articles = $this->articles_model->getItems(null, null, false);
 		
-		$this->content  = $this->load->view('news_manager', array('news_items'=>$news_items, 'admin_page'=>'news'), true);
-		$this->description = 'The news admin page for janhartigan.com';
-		$this->title = 'Admin News - janhartigan.com';
+		$this->content  = $this->load->view('articles/articles_manager', array('articles'=>$articles, 'admin_page'=>'articles'), true);
+		$this->description = 'The articles admin page for janhartigan.com';
+		$this->title = 'Admin Articles - janhartigan.com';
 		
 		$this->loadPage();
 	}
@@ -82,7 +82,7 @@ class Admin extends MY_Controller {
 		$this->load->model('creations_model');
 		$creations = $this->creations_model->getCreations();
 		
-		$this->content  = $this->load->view('creations_manager', array('creations'=>$creations, 'admin_page'=>'creations'), true);
+		$this->content  = $this->load->view('creations/creations_manager', array('creations'=>$creations, 'admin_page'=>'creations'), true);
 		$this->description = 'The creations admin page for janhartigan.com';
 		$this->title = 'Admin Creations - janhartigan.com';
 		
@@ -99,7 +99,7 @@ class Admin extends MY_Controller {
 		$this->load->model('portfolio_model');
 		$portfolio = $this->portfolio_model->getPortfolio();
 		
-		$this->content  = $this->load->view('portfolio_manager', array('portfolio'=>$portfolio, 'admin_page'=>'portfolio'), true);
+		$this->content  = $this->load->view('portfolio/portfolio_manager', array('portfolio'=>$portfolio, 'admin_page'=>'portfolio'), true);
 		$this->description = 'The portfolio admin page for janhartigan.com';
 		$this->title = 'Admin Portfolio - janhartigan.com';
 		
@@ -124,10 +124,10 @@ class Admin extends MY_Controller {
 		//then attempt to save item to database
 		if (isset($data['id']) && intval($data['id'])) {
 			//it has an id...so it's an existing item, save it
-			killScript( $this->news_model->saveItem($data) );
+			killScript( $this->articles_model->saveItem($data) );
 		} else {
 			//it's a new item, add it
-			killScript( $this->news_model->addItem($data) );
+			killScript( $this->articles_model->addItem($data) );
 		}
 	}
 	
@@ -142,7 +142,7 @@ class Admin extends MY_Controller {
 			killScript(array('success'=>false, 'error'=>"No data supplied"));
 		
 		//then attempt to delete item from database
-		killScript($this->news_model->deleteItem($data['id']));
+		killScript($this->articles_model->deleteItem($data['id']));
 	}
 	
 	/**
@@ -158,7 +158,7 @@ class Admin extends MY_Controller {
 		if (is_null($id))
 			killScript(array('success'=>false, 'error'=>"No data supplied"));
 		
-		killScript($this->news_model->getItem($id)); 
+		killScript($this->articles_model->getItem($id)); 
 	}
 	
 	/**
@@ -170,7 +170,7 @@ class Admin extends MY_Controller {
 		if (!isAjax())
 			redirect('');
 		
-		killScript($this->news_model->getItems(null, null, false)); 
+		killScript($this->articles_model->getItems(null, null, false)); 
 	}
 	
 	/**

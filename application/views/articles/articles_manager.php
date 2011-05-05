@@ -1,11 +1,11 @@
 <script type="text/javascript">
-var newsData = <?php echo $news_items['success'] ? json_encode($news_items['items']) : '[]'?>;
+var newsData = <?php echo $articles['success'] ? json_encode($articles['items']) : '[]'?>;
 </script>
 <div id="admin_content">
 	<?php echo $this->load->view('admin_control_bar', '', true)?>
 	<div id="news_manager_container">
-		<h2>News Manager</h2>
-		<div class="admin_subtext">This is where you can manage all news stories on the site.</div>
+		<h2>Articles Manager</h2>
+		<div class="admin_subtext">This is where you can manage all articles on the site.</div>
 		
 		<div id="news_manager" class="admin_manager">
 			<div id="news_list_container">

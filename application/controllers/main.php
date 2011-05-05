@@ -16,10 +16,10 @@ class Main extends MY_Controller {
 	 */
 	function index()
 	{
-		$this->load->model('news_model');
+		$this->load->model('articles_model');
 		$this->load->model('creations_model');
 		
-		$data = array(	'news_items'=>$this->news_model->getItems(5), 
+		$data = array(	'articles'=>$this->articles_model->getItems(5), 
 						'creations'=>$this->creations_model->getCreations(10, 1, true) 
 					);
 		

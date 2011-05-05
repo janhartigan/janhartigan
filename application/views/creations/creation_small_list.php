@@ -3,7 +3,7 @@
 <ul id="creations_list">
 	<?php foreach ($creations['creations'] as $item) {?>
 		<li>
-		<?php echo $this->load->view('creation_small', array('creation'=>$item), true)?>
+		<?php echo $this->load->view('creations/creation_small_item', array('creation'=>$item), true)?>
 		</li>
 	<?php }?>
 </ul>

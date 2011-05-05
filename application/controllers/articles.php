@@ -1,13 +1,13 @@
 <?php 
 /**
- * News Controller - for controlling all news requests
+ * Articles Controller - for controlling all articles requests
  *
- * @package		hlcc
+ * @package		janhartigan
  * @subpackage	Controllers
- * @category	News
+ * @category	Articles
  * @author		Jan Hartigan
  */
-class News extends MY_Controller {
+class Articles extends MY_Controller {
 	/**
 	 * Constructor
 	 */
@@ -15,7 +15,7 @@ class News extends MY_Controller {
 	{
 		parent::__construct();
 		$this->selected_menu = 'articles';
-		$this->load->model('news_model');
+		$this->load->model('articles_model');
 	}
 	
 	/**
@@ -25,7 +25,7 @@ class News extends MY_Controller {
 	 */
 	function index()
 	{
-		$this->content = $this->load->view('news', '', true);
+		$this->content = $this->load->view('articles/articles', '', true);
 		$this->selected_menu = 'articles';
 		$this->loadPage();
 	}
@@ -37,15 +37,15 @@ class News extends MY_Controller {
 	 */
 	function article($title_url='')
 	{
-		$item = $this->news_model->getItemByTitleUrl($title_url);
+		$item = $this->articles_model->getItemByTitleUrl($title_url);
 		
 		if (empty($title_url) || !$item['success'])
-			redirect('news');
+			redirect('articles');
 		
-		$this->content = $this->load->view('news_item', array('item'=>$item['item']), true);
+		$this->content = $this->load->view('articles/article', array('item'=>$item['item']), true);
 		$this->description = $item['item']['description'];
 		$this->title = $item['item']['title'].' - janhartigan.com';
-		$this->disqus = 'news-'.$title_url;
+		$this->disqus = 'article-'.$title_url;
 		$this->loadPage();
 	}
 }

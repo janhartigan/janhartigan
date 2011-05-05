@@ -1,9 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class News_Model extends CI_Model {
+class Articles_Model extends CI_Model {
 	
 	/**
-	 * Adds a news item to the database
+	 * Adds an article to the database
 	 * 
 	 * @param array		data ==> array( 
 	 * 									[str]: title, description, image, published, date, content, marked-up-content 
@@ -33,7 +33,7 @@ class News_Model extends CI_Model {
 	}
 
 	/**
-	 * Saves a news item
+	 * Saves an article
 	 * 
 	 * @param array		data ==> array( [int]: id [int], 
 	 * 									[str]: title, description, image, published, date, content, marked-up-content
@@ -69,7 +69,7 @@ class News_Model extends CI_Model {
 	}
 	
 	/**
-	 * Deletes a news item
+	 * Deletes an article
 	 * 
 	 * @param int		id
 	 * 
@@ -87,7 +87,7 @@ class News_Model extends CI_Model {
 	}
 	
 	/**
-	 * Gets news item by id
+	 * Gets an article by id
 	 * 
 	 * @param int		id
 	 * 
@@ -110,7 +110,7 @@ class News_Model extends CI_Model {
 	}
 	
 	/**
-	 * Gets news items from the database
+	 * Gets articles from the database
 	 * 
 	 * @return array('success' ? 'items'=>array of arrays of item data : 'error')
 	 */
@@ -134,7 +134,7 @@ class News_Model extends CI_Model {
 	}
 	
 	/**
-	 * Gets news item by title url
+	 * Gets an article by title url
 	 * 
 	 * @param string	title_url
 	 * 
