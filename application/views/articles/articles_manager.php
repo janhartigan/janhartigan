@@ -60,7 +60,7 @@ var newsData = <?php echo $articles['success'] ? json_encode($articles['items'])
 					</div>
 				</div>
 				<div class="clear"></div>
-				<label for="item_editor" id="item_editor_label">Content</label>
+				<label for="item_editor" class="item_editor_label">Content</label>
 				<div id="item_editor_container" class="yui-skin-sam clear">
 					<textarea id="item_editor" cols="50" rows="10"></textarea>
 				</div>

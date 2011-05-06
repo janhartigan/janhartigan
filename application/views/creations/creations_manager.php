@@ -68,7 +68,7 @@ var creationsData = <?php echo $creations['success'] ? json_encode($creations['c
 				</div>
 				<div class="clear"></div>
 				
-				<label for="creation_editor">
+				<label for="creation_editor"  class="item_editor_label">
 					Description
 				</label>
 				<div id="creation_editor_container" class="yui-skin-sam clear">
@@ -82,7 +82,7 @@ var creationsData = <?php echo $creations['success'] ? json_encode($creations['c
 				
 				<div class="clear"></div>
 				
-				<label for="creation_documentation_editor">
+				<label for="creation_documentation_editor"  class="item_editor_label">
 					Documentation
 				</label>
 				<div id="creation_documentation_editor_container" class="yui-skin-sam clear">

@@ -59,7 +59,7 @@ var portfolioData = <?php echo $portfolio['success'] ? json_encode($portfolio['i
 				</div>
 				<div class="clear"></div>
 				
-				<label for="portfolio_editor">
+				<label for="portfolio_editor" class="item_editor_label">
 					Description
 				</label>
 				<div id="portfolio_editor_container" class="yui-skin-sam clear">
