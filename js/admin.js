@@ -1415,6 +1415,7 @@ $(document).ready(function() {
 			this.descriptionEditor.setEditorHTML(item.description);
 			this.docsEditor.setEditorHTML(item.documentation);
 			$('#creation_editor_html textarea').val(item.description);
+			$('#creation_documentation_editor_html textarea').val(item.documentation);
 			
 			$('#creation_item_details_right input').each(function() {
 				var $this = $(this);
