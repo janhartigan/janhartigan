@@ -2,6 +2,10 @@
 	<?php $this->load->view('articles/article_list');?>
 </div>
 <div id="right_main">
-	<?php //$this->load->view('articles/sorter');?>
-	here be article sorts and highlights and stuff
+	<h3>List type</h3>
+	
+	<div id="article_list_selector">
+		<div class="selected">Blurb</div>
+		<div>Headlines</div>
+	</div>
 </div>

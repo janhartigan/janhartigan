@@ -211,12 +211,38 @@ h4 {
 }
 
 /**
- * Small news items area
+ * Article landing page
  */
-#news_list {
+#article_list_selector {
+	margin:17px 0;
+}
+#article_list_selector > div {
+	float:left;
+	margin-left:30px;
+	cursor:pointer;
+	font-size:17px;
+	padding:5px;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	text-align:center;
+	border:1px solid silver;
+}
+#article_list_selector > div:hover, #article_list_selector > div.selected {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+
+/**
+ * Small article area
+ */
+#article_list {
 	
 }
-#news_list  > li {
+#article_list  > li {
 	margin-bottom:30px;
 	border-bottom:1px solid silver;
 }
