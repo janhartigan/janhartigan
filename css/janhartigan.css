@@ -29,7 +29,7 @@ form label {
 
 code {
 	display:block !important;
-	margin:10px 10px 0 10px !important;
+	margin:10px 10px 20px 10px !important;
 	background: #f0f0f0 !important;
 	filter: progid:DXImageTransform.Microsoft.gradient(StartColorStr='white', EndColorStr='#f0f0f0') !important;
 	background: -webkit-gradient(linear, left top, left bottom, from(white), to(#f0f0f0)) !important;
@@ -249,6 +249,9 @@ h4 {
 .item_description {
 	line-height:22px;
 }
+.item_description h3 {
+	margin-top:30px;
+}
 .item_time {
 	margin-bottom:15px;
 	font-style:italic;
@@ -262,7 +265,7 @@ h4 {
 .news_item_read_more_link {
 	display:block;
 	float:right;
-	margin:10px 0;
+	margin:0 0 10px;
 	padding:5px;
 	border:1px solid white;
 	border-radius:4px;
@@ -462,8 +465,8 @@ h4 {
 	width:593px;
 	line-height:22px;
 }
-#creation_documentation img {
-	margin:15px 0;
+#creation_documentation h3 {
+	margin-top:30px;
 }
 
 
