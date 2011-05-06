@@ -92,8 +92,8 @@
 	cursor:pointer;
 	margin:10px 0 5px;
 }
-#item_editor_label {
-	margin:10px 0 5px 15px;
+.item_editor_label {
+	margin-left:15px !important;
 }
 #news_item_details_left {
 	float:left;
