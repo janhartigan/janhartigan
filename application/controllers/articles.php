@@ -42,6 +42,13 @@ class Articles extends MY_Controller {
 	 */
 	function article($title_url='')
 	{
+		//ghetto ass solution to the routing problem...works well for now
+		if (is_numeric($title_url))
+		{
+			$this->index($title_url);
+			return;
+		}
+		
 		$item = $this->articles_model->getItemByTitleUrl($title_url);
 		
 		if (empty($title_url) || !$item['success'])
