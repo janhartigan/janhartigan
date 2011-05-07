@@ -3,4 +3,5 @@
 </div>
 <div id="right_main">
 	<?php $this->load->view('creations/creation_small_list');?>
+	<?php $this->load->view('portfolio/portfolio_small_list');?>
 </div>

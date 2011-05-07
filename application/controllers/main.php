@@ -18,9 +18,11 @@ class Main extends MY_Controller {
 	{
 		$this->load->model('articles_model');
 		$this->load->model('creations_model');
+		$this->load->model('portfolio_model');
 		
 		$data = array(	'articles'=>$this->articles_model->getItems(5), 
-						'creations'=>$this->creations_model->getCreations(10, 1, true) 
+						'creations'=>$this->creations_model->getCreations(3, 1, true),
+						'portfolio'=>$this->portfolio_model->getPortfolio(3, 1, true)
 					);
 		
 		$this->content  = $this->load->view('homepage', $data, true);

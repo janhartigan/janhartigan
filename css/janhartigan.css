@@ -75,6 +75,15 @@ img {
 	border:0;
 }
 
+img.shadow {
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
+}
+
 p {
 	margin:0 0 20px;
 }
@@ -90,12 +99,13 @@ h1 {
 
 h2 {
 	font-size:22px;
-	margin-bottom:15px;
+	margin-bottom:8px;
 	color:#09193c;
 }
 
 h2.underline {
 	text-decoration:underline;
+	margin-bottom:4px;
 }
 
 h2 > a {
@@ -196,7 +206,7 @@ h4 {
 	float:left;
 	width:594px;
 	padding-right:25px;
-	border-right:3px solid silver;
+	border-right:2px solid silver;
 }
 #right_main {
 	float:right;
@@ -248,6 +258,9 @@ h4 {
 }
 .item_description {
 	line-height:22px;
+}
+.item_description img {
+	max-width:100%;
 }
 .item_description h3 {
 	margin-top:30px;
@@ -306,15 +319,15 @@ h4 {
 /**
  * Small creations area
  */
-#creations_list {
+#creations_small_list {
 	
 }
-#creations_list li {
+#creations_small_list li {
 	padding:5px 5px 15px;
 	border-bottom:1px solid silver;
 	margin-bottom:15px;
 }
-#creations_list .creation_small_link {
+#creations_small_list .creation_small_link {
 	display:block;
 	border:1px solid white;
 	border-radius:4px;
@@ -323,14 +336,14 @@ h4 {
 	padding:4px;
 	color:black !important;
 }
-#creations_list .creation_small_link:hover {
+#creations_small_list .creation_small_link:hover {
 	background-color:#d0e7a1;
 	border:1px solid #83af2c;
 	-moz-box-shadow:0 0 3px #999;
 	-webkit-box-shadow:0 0 3px #999;
 	box-shadow:0 0 3px #999;
 }
-#creations_list .creation_small_image {
+#creations_small_list .creation_small_image {
 	display:block;
 	float:right;
 	margin:0 0 5px 5px;
@@ -341,11 +354,11 @@ h4 {
 	-webkit-box-shadow:0 0 5px #999;
 	box-shadow:0 0 5px #999;
 }
-#creations_list .creation_small_time {
+#creations_small_list .creation_small_time {
 	margin:0 0 5px;
 	font-style:italic;
 }
-#creations_list .creation_short_description {
+#creations_small_list .creation_short_description {
 	line-height:22px;
 }
 
@@ -467,6 +480,52 @@ h4 {
 }
 #creation_documentation h3 {
 	margin-top:30px;
+}
+
+/**
+ * Small portfolio area
+ */
+#portfolio_small_list {
+	
+}
+#portfolio_small_list li {
+	padding:5px 5px 15px;
+	border-bottom:1px solid silver;
+	margin-bottom:15px;
+}
+#portfolio_small_list .portfolio_small_link {
+	display:block;
+	border:1px solid white;
+	border-radius:4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+	padding:4px;
+	color:black !important;
+}
+#portfolio_small_list .portfolio_small_link:hover {
+	background-color:#d0e7a1;
+	border:1px solid #83af2c;
+	-moz-box-shadow:0 0 3px #999;
+	-webkit-box-shadow:0 0 3px #999;
+	box-shadow:0 0 3px #999;
+}
+#portfolio_small_list .portfolio_small_image {
+	display:block;
+	float:right;
+	margin:0 0 5px 5px;
+	border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+	-moz-box-shadow:0 0 5px #999;
+	-webkit-box-shadow:0 0 5px #999;
+	box-shadow:0 0 5px #999;
+}
+#portfolio_small_list .portfolio_small_time {
+	margin:0 0 5px;
+	font-style:italic;
+}
+#portfolio_small_list .portfolio_short_description {
+	line-height:22px;
 }
 
 

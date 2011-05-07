@@ -1,7 +1,8 @@
 <?php if ($articles['success']) {?>
 <ul id="article_list">
-	<?php foreach ($articles['items'] as $item) {?>
-		<li>
+	<?php $len = sizeof($articles['items']);?>
+	<?php foreach ($articles['items'] as $i=>$item) {?>
+		<li<?php echo $i==($len-1) ? ' style="border-bottom:none"' : ''?>>
 			<?php if ($list_style == 'blurb') {?>
 				<?php echo $this->load->view('articles/article_small', array('item'=>$item), true)?>
 			<?php } else {?>
