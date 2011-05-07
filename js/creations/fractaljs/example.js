@@ -21,9 +21,9 @@ $(function() {
 		
 		switch(this.id) {
 			case 'fractal_picker_large':
-				$('#fractal_canvas').attr('width', '590').attr('height', '380'); maxIt = 300; break;
+				$('#fractal_canvas').attr('width', '590').attr('height', '380'); break;
 			case 'fractal_picker_medium':
-				$('#fractal_canvas').attr('width', '280').attr('height', '280'); maxIt = 400; break;
+				$('#fractal_canvas').attr('width', '280').attr('height', '280'); break;
 			case 'fractal_picker_small':
 				$('#fractal_canvas').attr('width', '150').attr('height', '150'); break;
 		}
