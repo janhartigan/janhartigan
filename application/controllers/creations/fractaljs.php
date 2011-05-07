@@ -32,7 +32,7 @@ class FractalJS extends MY_Controller
 		$this->selected_menu = 'creations';
 		$this->image = substr($creation['creation']['image'], 1);
 		$this->disqus = 'creations-fractaljs';
-		$this->content  = $this->load->view('creations/creation_home', $data, true);
+		$this->content  = $this->load->view('creations/creation', $data, true);
 		$this->js_files[] = 'creations/fractaljs/jquery.fractaljs.min.js';
 		$this->js_files[] = 'creations/fractaljs/example.js';
 		$this->css_files[] = 'creations/fractaljs/example.css';

@@ -32,7 +32,7 @@ class filepicker extends MY_Controller
 		$this->image = substr($creation['creation']['image'], 1);
 		$this->selected_menu = 'creations';
 		$this->disqus = 'creations-filepicker';
-		$this->content  = $this->load->view('creations/creation_home', $data, true);
+		$this->content  = $this->load->view('creations/creation', $data, true);
 		$this->js_files[] = 'creations/filepicker/jquery.filepicker.js';
 		$this->js_files[] = 'creations/filepicker/setup.js';
 		$this->css_files[] = 'creations/filepicker/jquery.filepicker.css';
