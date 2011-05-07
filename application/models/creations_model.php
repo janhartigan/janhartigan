@@ -130,7 +130,7 @@ class Creations_Model extends CI_Model {
 			$qStr .= " WHERE c.uri!=''";
 		
 		$qStr .= " GROUP BY c.id";
-		$qStr .= " ORDER BY c.time DESC";
+		$qStr .= " ORDER BY c.update_time DESC, c.time DESC";
 		
 		if (!is_null($rows)) {
 			$page = intval($page);
