@@ -4,7 +4,7 @@
 	<?php }?>
 	<h3><?php echo $item['name']?></h3>
 	<div class="portfolio_small_time">
-		<time datetime="<?php echo $item['time']?>" pubdate><?php echo date('F j, Y', strtotime($item['time']))?></time>
+		<time datetime="<?php echo $item['time']?>" pubdate><?php echo date('F Y', strtotime($item['time']))?></time>
 	</div>
 	
 	<div class="portfolio_short_description"><?php echo $item['short_description']?></div>
