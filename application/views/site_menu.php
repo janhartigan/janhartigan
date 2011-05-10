@@ -1,4 +1,4 @@
-<div id="site_nav_menu">
+<div id="site_nav_menu" <?php echo (isAdmin() ? 'style="margin-right:14px"' : '')?>>
 	<menu>
 		<li>
 			<a href="<?php echo base_url()?>" class="home_icon <?php echo $selected_menu == 'home' ? 'selected' : ''?>">
