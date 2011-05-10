@@ -63,6 +63,10 @@ class Articles extends MY_Controller {
 				redirect('articles');
 		}
 		
+		//temporary workaround for the about page
+		if ($item['id'] == 26)
+			$this->selected_menu = 'about';
+		
 		$this->content = $this->load->view('articles/article', array('item'=>$item['item']), true);
 		$this->description = $item['item']['description'];
 		$this->title = $item['item']['title'].' - janhartigan.com';
