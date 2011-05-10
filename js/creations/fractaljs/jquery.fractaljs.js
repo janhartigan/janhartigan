@@ -171,6 +171,30 @@
 		 */
 		image: null,
 		
+		/* This will be null if there is no worker support or if workers are turned off; an array or workers otherwise
+		 * 
+		 * @type Mixed
+		 */
+		workers: null,
+		
+		/* This contains the "id" of the current drawing so the rows are drawn correctly if workers are turned on
+		 * 
+		 * @type Int
+		 */
+		generation: 0,
+		
+		/* The current row to process if workers are turned on 
+		 * 
+		 * @type Int
+		 */
+		currentRow: 0,
+		
+		/* The current number of rows completed in this generation 
+		 * 
+		 * @type Int
+		 */
+		rowsCompleted: 0,
+		
 		/* The options object holds all the customizable properties of the fractal
 		 * 
 		 * @type Object
@@ -192,6 +216,13 @@
 			 */
 			maxIterations: 300,
 			
+			/* The escape value to be used during the iterations. If the modulus squared of the current value of Z reaches above this, consider
+			 * the point outside the set
+			 * 
+			 * @type Int
+			 */
+			escapeValue: 4,
+			
 			/* The color range multiplier. This number represents the number of times the color spectrum repeats itself.
 			 * 
 			 * @type Int
@@ -209,6 +240,24 @@
 			 * @type Int
 			 */
 			height: 0,
+			
+			/* Setting this to false turns off Web Workers (also if your browser doesn't support workers, it'll turn it off)
+			 * 
+			 * @type Bool
+			 */
+			useWorkers: true,
+			
+			/* Contains the path to the worker js file
+			 * 
+			 * @type String
+			 */
+			workerPath: 'fractaljs.worker.js',
+			
+			/* This determines how many workers are created to do the work if useWorkers is turned on and Workers are available
+			 * 
+			 * @type Int
+			 */
+			numWorkers: 10,
 			
 			/**
 			 * This callback fires after the fractal has been drawn
@@ -273,6 +322,24 @@
 				self.drawFractal();
 			});
 			
+			//check if workers are available and if they're turned on
+			if (!!window.Worker && this.options.useWorkers) {
+				//set the workers var to an array
+				this.workers = [];
+				
+				for (var i = 0; i < this.options.numWorkers; i++) {
+					//create the worker with the supplied path
+					var worker = new Worker(this.options.workerPath);
+					
+					//set the onmessage callback
+					worker.onmessage = this.receiveRow;
+					//set the initial state to idle==true so we know we can use it later
+					worker.idle = true;
+					//push this instance onto the workers array
+					this.workers.push(worker);
+				}
+			}
+			
 			return true;
 		},
 		
@@ -295,7 +362,7 @@
 		
 		/**
 		 * Calculates the ImageData for the canvas as it iterates over each pixel to determine if it is inside or outside of the set,
-		 * and if it is outside the set, how quickly we determined if it ran off to infinity 
+		 * and if it is outside the set, how quickly we determined if it ran off to infinity.
 		 */
 		drawFractal: function() {
 			var z0 = new ComplexNumber(0,0),
@@ -321,6 +388,21 @@
 			this.zoom.height = this.zoom.width * (this.height/this.width);
 			this.zoom.y = this.zoom.y - (origZoomHeight - this.zoom.height)/2;
 			
+			//iterate to the next generation
+			this.generation++;
+			this.currentRow = 0;
+			
+			//now test if workers are being used. If so, start the row-by-row drawing and skip this basic iteration
+			if (this.workers) {
+				for (var i = 0; i < this.options.numWorkers; i++) {
+					if (this.workers[i].idle) {
+						this.processRow(this.workers[i]);
+					}
+				}
+				
+				return true;
+			}
+			
 			//for each vertical row in the canvas
 			for (y = 0; y < this.height; y++) {
 				//for each horizontal pixel in the row
@@ -330,12 +412,12 @@
 					i = 0;
 					overIterated = false;
 					
-					while (z.mod() < 4 && !overIterated) {
+					while (z.mod() < this.options.escapeValue && !overIterated) {
 						z = z.mult(z).add(c);
 						i++;
 						
 						if (i > this.options.maxIterations) {
-							//if z.mod() is still less than 4 and we're past our maxIterations counter, assume the point is in the set
+							//if z.mod() is still less than escapeValue and we're past our maxIterations counter, assume the point is in the set
 							//and color the pixel black
 							i = 0;
 							this.image.data[pixel] = 0;
@@ -374,6 +456,61 @@
 			
 			//call the afterDraw callback
 			this.options.afterDraw.call(this.$canvas, this.zoom);
+		},
+		
+		/**
+		 * Processes the current row with the supplied Web Worker
+		 * 
+		 * @param Worker	worker
+		 */
+		processRow: function(worker) {
+			var row = this.currentRow++;
+			
+			if (row >= this.height) {
+				//if the row is beyond the last row of the canvas, set this worker to idle
+				worker.idle = true;
+			} else {
+				//otherwise, send the message off to the worker
+				worker.idle = false;
+				
+				worker.postMessage({
+					row: row,
+					width: this.width,
+					height: this.height,
+					zoom: this.zoom,
+					generation: this.generation,
+					maxIterations: this.options.maxIterations,
+					colorRangeRepeats: this.options.colorRangeRepeats,
+					escapeValue: this.options.escapeValue
+				});
+			}
+		},
+		
+		/**
+		 * Receives row data from the Web Workers and manages the push to the canvas
+		 * 
+		 * @param Event		e
+		 */
+		receiveRow: function(e) {
+			var worker = e.target,
+				data = e.data,
+				rowLen = e.data.imageData.length;
+			
+			if (data.generation == this.generation) {
+				var aFirst = this.image.data.slice(0, (data.row * rowLen) - 1),
+					aLast = this.image.data.slice( (data.row + 1) * rowLen, (this.height * rowLen) - 1);
+				
+				this.image.data = aFirst.concat(data.imageData, aLast);
+				
+				this.rowsCompleted++;
+				
+				if (this.rowsCompleted == this.height) {
+					//put the image data into the canvas (i.e. render it)
+					this.ctx.putImageData(this.image, 0, 0);
+				}
+			}
+			
+			this.processRow(worker);
 		},
 		
 		/**
@@ -430,7 +567,7 @@
 				case 5:
 					cols.r = 255;
 					cols.g = 0;
-					cols.b = 255 - 5; break;
+					cols.b = 255 - t; break;
 			}
 			
 			return cols;
