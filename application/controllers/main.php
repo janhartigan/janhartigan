@@ -30,6 +30,18 @@ class Main extends MY_Controller {
 	}
 	
 	/**
+	 * Loads the contact page
+	 */
+	function contact()
+	{
+		$this->content = $this->load->view('contact', '', true);
+		$this->description = 'About/contact page for janhartigan.com';
+		$this->title = 'Contact - janhartigan.com';
+		$this->selected_menu = 'contact';
+		$this->loadPage();
+	}
+	
+	/**
 	 * 404 error page
 	 */
 	function error404()

@@ -157,6 +157,10 @@ h4 {
 	color:#777;
 	font-size:.9em;
 }
+
+/**
+ * Scaffold
+ */
 #mainwrapper {
 	width:1010px;
 	height:100%;
@@ -235,6 +239,19 @@ h4 {
  */
 #error_404 {
 	text-align:center;
+}
+
+/**
+ * Contact page
+ */
+#contact_methods {
+	margin:20px 0;
+}
+#contact_methods > a {
+	display:block;
+	float:left;
+	padding:5px;
+	margin:0 30px;
 }
 
 /**

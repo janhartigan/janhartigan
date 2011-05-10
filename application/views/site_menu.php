@@ -30,6 +30,12 @@
 				About
 			</a>
 		</li>
+		<li>
+			<a href="<?php echo base_url()?>contact" class="contact_icon <?php echo $selected_menu == 'contact' ? 'selected' : ''?>">
+				<img src="<?php echo base_url()?>images/contact_icon.png" />
+				Contact
+			</a>
+		</li>
 		<?php if (isAdmin()) {?>
 		<li>
 			<a href="<?php echo base_url()?>admin" class="admin_icon <?php echo $selected_menu == 'admin' ? 'selected' : ''?>">
