@@ -1,6 +1,6 @@
 $(function() {
 	$('#fractal_picker > div').click(function() {
-		var maxIt = 500;
+		var maxIt = 900;
 		
 		//fade the fractal picker out, then set the css properties so it displays as a floated left list above the canvas
 		$('#fractal_picker').fadeOut(300);
@@ -28,7 +28,7 @@ $(function() {
 				$('#fractal_canvas').attr('width', '150').attr('height', '150'); break;
 		}
 		
-		$('#fractal_canvas').fractaljs({maxIterations: maxIt});
+		$('#fractal_canvas').fractaljs({maxIterations: maxIt, workerPath: '/js/creations/fractaljs/fractaljs.worker.js'});
 		$('#fractal_canvas').fadeIn(300);
 	});
 });
