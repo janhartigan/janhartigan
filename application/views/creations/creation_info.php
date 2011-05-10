@@ -23,6 +23,11 @@
 				<?php $i=1; foreach ($creation_tools['tools'] as $tool) { echo $tool['name'].($i==sizeof($creation_tools['tools'])?' ':', '); $i++;}?>
 			</div>
 		<?php }?>
+		
+		<?php if ($c['github_url']) {?>
+			<h3>Source</h3>
+			<a href="<?php echo $c['github_url']?>" target="_blank"><?php echo $c['github_url']?></a>
+		<?php }?>
 	</div>
 <?php } else if ($c['layout']=='full-width') {?>
 	<div class="creation_info_full_width">
