@@ -28,7 +28,11 @@ $(function() {
 				$('#fractal_canvas').attr('width', '150').attr('height', '150'); break;
 		}
 		
-		$('#fractal_canvas').fractaljs({maxIterations: maxIt, workerPath: '/js/creations/fractaljs/fractaljs.worker.js'});
+		$('#fractal_canvas').fractaljs({
+			maxIterations: maxIt, 
+			workerPath: '/js/creations/fractaljs/fractaljs.worker.js'
+		});
+		
 		$('#fractal_canvas').fadeIn(300);
 	});
 });
