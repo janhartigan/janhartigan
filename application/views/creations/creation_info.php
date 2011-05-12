@@ -20,7 +20,10 @@
 		<?php if (isset($creation_tools) && $creation_tools['success']) {?>
 			<h3>Tools</h3>
 			<div id="creation_tools">
-				<?php $i=1; foreach ($creation_tools['tools'] as $tool) { echo $tool['name'].($i==sizeof($creation_tools['tools'])?' ':', '); $i++;}?>
+				<?php $i=1; foreach ($creation_tools['tools'] as $tool) {
+								echo $tool['name'].($i == sizeof($creation_tools['tools']) ? ' ' : ', '); 
+								$i++;
+							}?>
 			</div>
 		<?php }?>
 		
