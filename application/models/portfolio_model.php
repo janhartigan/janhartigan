@@ -15,7 +15,7 @@ class Portfolio_Model extends CI_Model {
 		$published = $data['published'] == "yes" ? true : false;
 		
 		$qStr = "INSERT INTO portfolio (name, description, marked_up_description, short_description, uri, live_url, image, image_small, time, published)
-				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], 
 											$title_url, $data['live_url'], $data['image'], $data['image_small'], $data['time'], $published));
 		
