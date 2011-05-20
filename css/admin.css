@@ -545,6 +545,26 @@
 #portfolio_item_details_right input {
 	width:380px;
 }
+#portfolio_item_details_published_area {
+	float:right;
+	width:80px;
+}
+#portfolio_item_details_published_area > label {
+	display:inline-block;
+	padding-right:5px;
+	width:15px;
+}
+#portfolio_item_details_published_area > div > input {
+	display:inline-block !important;
+	width:auto !important;
+}
+#portfolio_item_details_published_area > div > label {
+	display:inline-block !important;
+	width:35px;
+}
+#portfolio_item_details_time, #portfolio_item_details_time_label {
+	width:250px !important;
+}
 #portfolio_item_area .image_preview {
 	margin:5px 0;
 }

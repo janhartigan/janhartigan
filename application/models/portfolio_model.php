@@ -12,11 +12,12 @@ class Portfolio_Model extends CI_Model {
 	function addItem($data)
 	{
 		$title_url = $data['uri'] ? url_title($data['uri'], 'dash', TRUE) : url_title($data['name'], 'dash', TRUE);
+		$published = $data['published'] == "yes" ? true : false;
 		
-		$qStr = "INSERT INTO portfolio (name, description, marked_up_description, short_description, uri, live_url, image, image_small, time)
+		$qStr = "INSERT INTO portfolio (name, description, marked_up_description, short_description, uri, live_url, image, image_small, time, published)
 				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], 
-											$title_url, $data['live_url'], $data['image'], $data['image_small'], $data['time']));
+											$title_url, $data['live_url'], $data['image'], $data['image_small'], $data['time'], $published));
 		
 		if ($q)
 			return $this->getItem($this->db->insert_id());
@@ -39,15 +40,17 @@ class Portfolio_Model extends CI_Model {
 			return $item;
 		
 		$title_url = $data['uri'] ? url_title($data['uri'], 'dash', TRUE) : url_title($data['name'], 'dash', TRUE);
+		$published = $data['published'] == "yes" ? true : false;
 		
 		//prepare values
 		$id = intval($data['id']);
 		
 		$qStr = "UPDATE portfolio
-					SET name=?, description=?, marked_up_description=?, short_description=?, uri=?, live_url=?, image=?, image_small=?, time=?
+					SET name=?, description=?, marked_up_description=?, short_description=?, uri=?, live_url=?, image=?, image_small=?, time=?,
+						published=?
 				WHERE id=?";
 		$q = $this->db->query($qStr, array($data['name'], $data['description'], $data['marked_up_description'], $data['short_description'], $title_url, 
-											$data['live_url'], $data['image'], $data['image_small'], $data['time'], $id));
+											$data['live_url'], $data['image'], $data['image_small'], $data['time'], $published, $id));
 		
 		if ($q)
 			return $this->getItem($id);
@@ -127,15 +130,29 @@ class Portfolio_Model extends CI_Model {
 	 * 
 	 * @return array('success' ? 'items'=>array of arrays of creation data : 'error')
 	 */
-	function getPortfolio($rows = null, $page = 0, $limit_uris = false, $sort='date')
+	function getPortfolio($rows = null, $page = 0, $limit_uris = false, $sort='date', $published_only=true)
 	{
 		$qStr = "SELECT p.*, GROUP_CONCAT(t.name SEPARATOR ', ') AS tools
 				FROM portfolio p
 					LEFT JOIN portfolio_tools pt ON p.id=pt.portfolio_id
 					LEFT JOIN tools t ON pt.tool_id=t.id";
 		
-		if ($limit_uris)
-			$qStr .= " WHERE p.uri!='' OR p.uri IS NOT NULL";
+		if ($limit_uris || $published_only) {
+			$qStr .= " WHERE ";
+			$onedone = false;
+			
+			if ($limit_uris) {
+				$qStr .= " (p.uri!='' OR p.uri IS NOT NULL)";
+				$onedone = true;
+			}
+			
+			if ($published_only) {
+				$qStr .= $onedone ? ' AND ' : '';
+				$qStr .= " p.published=1";
+			}
+		}
+		
+		
 		
 		$qStr .= " GROUP BY p.id";
 		$qStr .= " ORDER BY p.time DESC";

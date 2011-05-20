@@ -38,7 +38,22 @@ var portfolioData = <?php echo $portfolio['success'] ? json_encode($portfolio['i
 					</label>
 					<input type="text" id="portfolio_item_details_live_url" />
 					
-					<label for="portfolio_item_details_time">
+					<div id="portfolio_item_details_published_area">
+						<label>
+							Published
+						</label>
+						
+						<div>
+							<label for="published_yes" class="small_label">Yes</label>
+							<input type="radio" name="published" id="published_yes" value="yes" checked="checked" />
+						</div>
+						<div>
+							<label for="published_no" class="small_label">No</label>
+							<input type="radio" name="published" id="published_no" value="no" />
+						</div>
+					</div>
+					
+					<label for="portfolio_item_details_time" id="portfolio_item_details_time_label">
 						Time
 					</label>
 					<input type="text" id="portfolio_item_details_time" />

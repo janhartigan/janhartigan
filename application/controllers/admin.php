@@ -97,7 +97,7 @@ class Admin extends MY_Controller {
 	function portfolio()
 	{
 		$this->load->model('portfolio_model');
-		$portfolio = $this->portfolio_model->getPortfolio();
+		$portfolio = $this->portfolio_model->getPortfolio(null, 0, false, 'date', false);
 		
 		$this->content  = $this->load->view('portfolio/portfolio_manager', array('portfolio'=>$portfolio, 'admin_page'=>'portfolio'), true);
 		$this->description = 'The portfolio admin page for janhartigan.com';

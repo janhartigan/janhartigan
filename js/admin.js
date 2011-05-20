@@ -2120,6 +2120,11 @@ $(document).ready(function() {
 			this.descriptionEditor.setEditorHTML(item.description);
 			$('#portfolio_editor_html textarea').val(item.description);
 			
+			if (parseInt(item.published))
+				$('#published_yes').trigger('click')
+			else
+				$('#published_no').trigger('click')
+			
 			$('#portfolio_item_details_right input').each(function() {
 				var $this = $(this);
 				
@@ -2167,6 +2172,7 @@ $(document).ready(function() {
 			$('#portfolio_item_details_image').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_image_small').val('').removeClass('unvalidated');
 			$('#portfolio_item_details_right .image_preview').remove();
+			$('#published_yes').trigger('click')
 			this.descriptionEditor.clearEditorDoc();
 		},
 		
@@ -2182,6 +2188,7 @@ $(document).ready(function() {
 					time: $('#portfolio_item_details_time').val(),
 					image: $('#portfolio_item_details_image').val(),
 					image_small: $('#portfolio_item_details_image_small').val(),
+					published: $('input[name=published]:checked').val(),
 					description: $('#portfolio_editor_container').is(':visible') 
 								? this.descriptionEditor.getEditorHTML() 
 								: $('#portfolio_editor_html textarea').val()
@@ -2248,6 +2255,7 @@ $(document).ready(function() {
 				time				: $('#portfolio_item_details_time').val(),
 				image				: $('#portfolio_item_details_image').val(),
 				image_small			: $('#portfolio_item_details_image_small').val(),
+				published			: $('input[name=published]:checked').val(),
 				description			: $('#portfolio_editor_container').is(':visible') 
 						 				? this.descriptionEditor.getEditorHTML()
 										: $('#portfolio_editor_html textarea').val(),
