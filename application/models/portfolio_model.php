@@ -28,7 +28,7 @@ class Portfolio_Model extends CI_Model {
 	/**
 	 * Saves a portfolio item
 	 * 
-	 * @param array		data 
+	 * @param array		data
 	 * 
 	 * @return array('success' ? null : 'error')
 	 */
