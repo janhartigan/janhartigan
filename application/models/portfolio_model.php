@@ -126,7 +126,7 @@ class Portfolio_Model extends CI_Model {
 	 * @param int		rows
 	 * @param int		page
 	 * @param bool		limit_uris ==> if set to true, it only returns those items with the URI field filled in
-	 * @param string	sort ==> can be 'date' 
+	 * @param string	sort ==> can be 'date'
 	 * 
 	 * @return array('success' ? 'items'=>array of arrays of creation data : 'error')
 	 */
