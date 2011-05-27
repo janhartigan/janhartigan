@@ -3,6 +3,12 @@
 class User_Model extends CI_Model {
 	
 	/**
+	 * boolean that lets us store the admin state without making repeated trips to the db 
+	 * @var bool
+	 */
+	var $admin = null;
+	
+	/**
 	 * Creates a new user given username and password, when registering without open id
 	 *
 	 * @param string 	username
@@ -248,10 +254,15 @@ class User_Model extends CI_Model {
 			if (!$this->session->userdata('logged_in')) 
 			{
 				return false;
-			} else 
+			}
+			else 
 			{
 				$user_id = $this->session->userdata('user_id');
 			}
+		}
+		
+		if (isset($this->admin)) {
+			return $this->admin;
 		}
 		
 		$qStr = "SELECT id, admin FROM users WHERE id=?";
@@ -260,10 +271,12 @@ class User_Model extends CI_Model {
 		if ($q->num_rows() > 0) {
 			$row = $q->row_array();
 			
-			return $row['admin'];
+			$this->admin = (bool) $row['admin'];
 		} else {
-			return false;
+			$this->admin = false;
 		}
+		
+		return $this->admin;
 	}
 
 	/**

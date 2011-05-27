@@ -1,8 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
-* is_ajax_call
-*
-* Determines if the current page request is done through an AJAX call
+* isAdmin call that pings the user model to determine if this user is an admin
 *
 * @access    public
 * @param    void
@@ -12,7 +10,7 @@ if ( ! function_exists('isAdmin')) {
     function isAdmin() {
 		$CI =& get_instance();
 		
-		return $CI->userlib->isAdmin();
+		return $CI->user_model->isAdmin();
 	}
 }
 ?>
