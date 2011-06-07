@@ -11,6 +11,9 @@
 
 (function($){
 	
+	//the current element being worked on by the filepicker
+	var currentElement;
+	
 	//an array in which we will store all instances of our filePicker object
 	var filePickers = [];
 	
@@ -61,7 +64,7 @@
 			/* If set to true, clicking a file opens a prompt
 			 * bool
 			 */
-			confirmSelection	: true,
+			confirmSelection	: false,
 			
 			/* If set to true, selecting a file closes the filePicker
 			 * bool
@@ -73,8 +76,8 @@
 			 */
 			confirmText			: "Are you sure you want to select this file?",
 			
-			/*
-			 * Whether to align the filepicker to the left or the right edge of the clickable element
+			/* Whether to align the filepicker to the left or the right edge of the clickable element
+			 * string
 			 */
 			horizontalAlign		: 'right',
 			
@@ -552,7 +555,11 @@
 	//extend the jQuery object 
 	$.fn.filePicker = function(options) {
 		return this.each(function() {
-			filePickers.push(new filePicker(this, options));
+			if ( (this != currentElement) && !checkIfActive(this)) {
+				currentElement = this;
+				filePickers.push(new filePicker(this, options));
+				currentElement = '';
+			}
 		});
 	};
 })(jQuery);
